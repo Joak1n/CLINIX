@@ -1,6 +1,6 @@
-# mediconfort_medical_record_app
+# CLINIX
 
-A new Flutter project.
+CLINIX es una aplicación multiplataforma desarrollada para la gestión de consultorios y la creación, organización y almacenamiento de expedientes clínicos electrónico
 
 ## Getting Started
 
