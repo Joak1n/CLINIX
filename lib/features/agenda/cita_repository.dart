@@ -12,9 +12,13 @@ class CitaRepository {
     final db = await _db.database;
     final maps = await db.rawQuery('''
       SELECT c.*, 
-             p.nombre || ' ' || p.apellido_paterno AS nombre_paciente
+             CASE 
+               WHEN c.paciente_id IS NOT NULL 
+               THEN p.nombre || ' ' || p.apellido_paterno 
+               ELSE c.nombre_temporal 
+             END AS nombre_paciente
       FROM citas c
-      JOIN pacientes p ON c.paciente_id = p.id
+      LEFT JOIN pacientes p ON c.paciente_id = p.id
       WHERE c.fecha = ?
       ORDER BY c.hora ASC
     ''', [fecha]);
@@ -33,7 +37,9 @@ class CitaRepository {
   }
 
   Future<Cita> crear({
-    required String pacienteId,
+    String? pacienteId,
+    String? nombreTemporal,
+    String? telefonoTemporal,
     required Especialidad especialidad,
     required String fecha,
     required String hora,
@@ -44,6 +50,8 @@ class CitaRepository {
     final cita = Cita(
       id: _uuid.v4(),
       pacienteId: pacienteId,
+      nombreTemporal: nombreTemporal,
+      telefonoTemporal: telefonoTemporal,
       especialidad: especialidad,
       fecha: fecha,
       hora: hora,
@@ -110,5 +118,3 @@ class CitaRepository {
   } catch (_) {}
 }
 }
-
-

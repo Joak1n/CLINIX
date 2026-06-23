@@ -31,22 +31,31 @@ extension EstadoCitaExt on EstadoCita {
 
 class Cita {
   final String id;
-  final String pacienteId;
+  final String? pacienteId;       // null si es paciente temporal
+  final String? nombreTemporal;   // nombre cuando no está registrado
+  final String? telefonoTemporal; // teléfono cuando no está registrado
   final Especialidad especialidad;
-  final String fecha;       // 'yyyy-MM-dd'
-  final String hora;        // 'HH:mm'
+  final String fecha;
+  final String hora;
   final int duracionMinutos;
   final String terapeuta;
   final EstadoCita estado;
   final String? notas;
   final String createdAt;
 
-  // Campo opcional para mostrar nombre del paciente en listas
+  // Campo calculado para mostrar nombre en listas
   final String? nombrePaciente;
+
+  bool get esPacienteTemporal => pacienteId == null;
+
+  String get nombreMostrado =>
+      nombrePaciente ?? nombreTemporal ?? 'Paciente sin nombre';
 
   Cita({
     required this.id,
-    required this.pacienteId,
+    this.pacienteId,
+    this.nombreTemporal,
+    this.telefonoTemporal,
     required this.especialidad,
     required this.fecha,
     required this.hora,
@@ -62,6 +71,8 @@ class Cita {
     return Cita(
       id: map['id'],
       pacienteId: map['paciente_id'],
+      nombreTemporal: map['nombre_temporal'],
+      telefonoTemporal: map['telefono_temporal'],
       especialidad: EspecialidadExt.fromValor(map['especialidad']),
       fecha: map['fecha'],
       hora: map['hora'],
@@ -78,6 +89,8 @@ class Cita {
     return {
       'id': id,
       'paciente_id': pacienteId,
+      'nombre_temporal': nombreTemporal,
+      'telefono_temporal': telefonoTemporal,
       'especialidad': especialidad.valor,
       'fecha': fecha,
       'hora': hora,
@@ -92,6 +105,8 @@ class Cita {
   Cita copyWith({
     EstadoCita? estado,
     String? pacienteId,
+    String? nombreTemporal,
+    String? telefonoTemporal,
     Especialidad? especialidad,
     String? fecha,
     String? hora,
@@ -103,6 +118,8 @@ class Cita {
     return Cita(
       id: id,
       pacienteId: pacienteId ?? this.pacienteId,
+      nombreTemporal: nombreTemporal ?? this.nombreTemporal,
+      telefonoTemporal: telefonoTemporal ?? this.telefonoTemporal,
       especialidad: especialidad ?? this.especialidad,
       fecha: fecha ?? this.fecha,
       hora: hora ?? this.hora,
@@ -115,4 +132,3 @@ class Cita {
     );
   }
 }
-

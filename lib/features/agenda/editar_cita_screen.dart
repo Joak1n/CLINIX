@@ -456,3 +456,69 @@ class _EditarCitaScreenState extends ConsumerState<EditarCitaScreen> {
         ),
       );
 }
+class _DialogoCitaGuardada extends StatelessWidget {
+  final Cita cita;
+  final Paciente paciente;
+
+  const _DialogoCitaGuardada({
+    required this.cita,
+    required this.paciente,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Row(
+        children: [
+          Icon(Icons.check_circle, color: Colors.green),
+          SizedBox(width: 8),
+          Text('Cita actualizada'),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Paciente: ${paciente.nombreCompleto}'),
+          const SizedBox(height: 4),
+          Text('Fecha: ${cita.fecha}  Hora: ${cita.hora}'),
+          const SizedBox(height: 4),
+          Text('Especialidad: ${cita.especialidad.nombre}'),
+          if (paciente.telefono != null && paciente.telefono!.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            const Text('¿Notificar al paciente por WhatsApp?'),
+          ],
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cerrar'),
+        ),
+        if (paciente.telefono != null && paciente.telefono!.isNotEmpty)
+          FilledButton.icon(
+            style: FilledButton.styleFrom(
+                backgroundColor: const Color(0xFF25D366)),
+            icon: const Icon(Icons.message),
+            label: const Text('Notificar'),
+            onPressed: () async {
+              Navigator.pop(context);
+              final partes = cita.fecha.split('-');
+              final fechaFmt = '${partes[2]}/${partes[1]}/${partes[0]}';
+              final mensaje = await WhatsAppService.mensajeCitaNueva(
+                nombrePaciente: paciente.nombre,
+                fecha: fechaFmt,
+                hora: cita.hora,
+                especialidad: cita.especialidad.nombre,
+                terapeuta: cita.terapeuta,
+              );
+              await WhatsAppService.enviarMensaje(
+                telefono: paciente.telefono!,
+                mensaje: mensaje,
+              );
+            },
+          ),
+      ],
+    );
+  }
+}

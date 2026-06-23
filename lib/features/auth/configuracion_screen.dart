@@ -508,6 +508,18 @@ class _ConfiguracionScreenState
     Color(0xFF4CAF50), // Verde
   ];
 
+  /// Convierte Color a string HEX sin canal alpha (ej. "1D9E75")
+  String _colorAHex(Color c) =>
+      c.value.toRadixString(16).substring(2).toUpperCase();
+
+  /// Convierte string HEX a Color; retorna null si inválido
+  Color? _hexAColor(String hex) {
+    final limpio = hex.replaceAll('#', '').trim();
+    if (limpio.length != 6) return null;
+    final valor = int.tryParse('FF$limpio', radix: 16);
+    return valor != null ? Color(valor) : null;
+  }
+
   Future<void> _mostrarSelectorColor(
     BuildContext context,
     String titulo,
@@ -515,98 +527,164 @@ class _ConfiguracionScreenState
     ValueChanged<Color> onColorCambiado,
   ) async {
     Color colorTemporal = colorActual;
+    final hexCtrl = TextEditingController(text: _colorAHex(colorActual));
+    String? hexError;
 
     await showDialog(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('Seleccionar $titulo'),
-        content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Paleta predefinida
-              const Text('Colores predefinidos',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500)),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: _paleta.map((color) {
-                  final seleccionado =
-                      colorTemporal.value == color.value;
-                  return GestureDetector(
-                    onTap: () {
-                      colorTemporal = color;
-                      onColorCambiado(color);
-                      Navigator.pop(ctx);
-                    },
-                    child: Container(
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setDialog) => AlertDialog(
+          title: Text('Seleccionar $titulo'),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Paleta predefinida
+                const Text('Colores predefinidos',
+                    style: TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500)),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: _paleta.map((color) {
+                    final seleccionado =
+                        colorTemporal.value == color.value;
+                    return GestureDetector(
+                      onTap: () {
+                        setDialog(() {
+                          colorTemporal = color;
+                          hexCtrl.text = _colorAHex(color);
+                          hexError = null;
+                        });
+                      },
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: color,
+                          shape: BoxShape.circle,
+                          border: seleccionado
+                              ? Border.all(color: Colors.white, width: 3)
+                              : null,
+                          boxShadow: seleccionado
+                              ? [BoxShadow(
+                                  color: color.withValues(alpha: 0.6),
+                                  blurRadius: 6)]
+                              : null,
+                        ),
+                        child: seleccionado
+                            ? const Icon(Icons.check,
+                                color: Colors.white, size: 20)
+                            : null,
+                      ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 16),
+                const Divider(),
+                const SizedBox(height: 8),
+
+                // Campo HEX manual
+                const Text('Código HEX',
+                    style: TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500)),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    // Preview del color actual
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: color,
-                        shape: BoxShape.circle,
-                        border: seleccionado
-                            ? Border.all(
-                                color: Colors.white,
-                                width: 3)
-                            : null,
-                        boxShadow: seleccionado
-                            ? [
-                                BoxShadow(
-                                  color: color
-                                      .withOpacity(0.6),
-                                  blurRadius: 6,
-                                )
-                              ]
-                            : null,
+                        color: colorTemporal,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.grey.shade300),
                       ),
-                      child: seleccionado
-                          ? const Icon(Icons.check,
-                              color: Colors.white,
-                              size: 20)
-                          : null,
                     ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 16),
-              const Divider(),
-              const SizedBox(height: 8),
-              // Selector libre
-              const Text('Color personalizado',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500)),
-              const SizedBox(height: 8),
-              ColorPicker(
-                pickerColor: colorTemporal,
-                onColorChanged: (c) =>
-                    colorTemporal = c,
-                enableAlpha: false,
-                labelTypes: const [],
-                pickerAreaHeightPercent: 0.5,
-              ),
-            ],
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: TextField(
+                        controller: hexCtrl,
+                        maxLength: 7,
+                        decoration: InputDecoration(
+                          prefixText: '#',
+                          hintText: 'ej. 1D9E75',
+                          counterText: '',
+                          border: const OutlineInputBorder(),
+                          errorText: hexError,
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.check_circle_outline,
+                                size: 20),
+                            tooltip: 'Aplicar HEX',
+                            onPressed: () {
+                              final color = _hexAColor(hexCtrl.text);
+                              if (color != null) {
+                                setDialog(() {
+                                  colorTemporal = color;
+                                  hexError = null;
+                                });
+                              } else {
+                                setDialog(() =>
+                                    hexError = 'HEX inválido (6 caracteres)');
+                              }
+                            },
+                          ),
+                        ),
+                        onChanged: (val) {
+                          final color = _hexAColor(val);
+                          if (color != null) {
+                            setDialog(() {
+                              colorTemporal = color;
+                              hexError = null;
+                            });
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                const Divider(),
+                const SizedBox(height: 8),
+
+                // Selector libre (slider)
+                const Text('Color personalizado',
+                    style: TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.w500)),
+                const SizedBox(height: 8),
+                ColorPicker(
+                  pickerColor: colorTemporal,
+                  onColorChanged: (c) => setDialog(() {
+                    colorTemporal = c;
+                    hexCtrl.text = _colorAHex(c);
+                    hexError = null;
+                  }),
+                  enableAlpha: false,
+                  labelTypes: const [],
+                  pickerAreaHeightPercent: 0.5,
+                ),
+              ],
+            ),
           ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () {
+                onColorCambiado(colorTemporal);
+                Navigator.pop(ctx);
+              },
+              child: const Text('Aplicar'),
+            ),
+          ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancelar'),
-          ),
-          FilledButton(
-            onPressed: () {
-              onColorCambiado(colorTemporal);
-              Navigator.pop(ctx);
-            },
-            child: const Text('Aplicar'),
-          ),
-        ],
       ),
     );
+    hexCtrl.dispose();
   }
 
   Future<void> _agregarEspecialidad(
@@ -740,5 +818,3 @@ class _BotonColor extends StatelessWidget {
     );
   }
 }
-
-

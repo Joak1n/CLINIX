@@ -41,15 +41,6 @@ class AgendaScreen extends ConsumerWidget {
     final fechaSeleccionada = ref.watch(fechaSeleccionadaProvider);
     final fechaStr = _formatearFecha(fechaSeleccionada);
     final citasAsync = ref.watch(citasDelDiaProvider(fechaStr));
-    itemBuilder: (context, i) => _TarjetaCita(
-      cita: citas[i],
-      onCambiarEstado: (estado) => ref
-          .read(citasDelDiaProvider(fechaStr).notifier)
-          .actualizarEstado(citas[i].id, estado),
-      onEliminar: () => ref
-          .read(citasDelDiaProvider(fechaStr).notifier)
-          .eliminar(citas[i].id),
-    ),
 
     return Scaffold(
       appBar: AppBar(
@@ -167,12 +158,15 @@ class AgendaScreen extends ConsumerWidget {
                 return ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: citas.length,
-                  separatorBuilder: (_, _) => const SizedBox(height: 8),
+                  separatorBuilder: (_, __) => const SizedBox(height: 8),
                   itemBuilder: (context, i) => _TarjetaCita(
                     cita: citas[i],
                     onCambiarEstado: (estado) => ref
                         .read(citasDelDiaProvider(fechaStr).notifier)
                         .actualizarEstado(citas[i].id, estado),
+                    onEliminar: () => ref
+                        .read(citasDelDiaProvider(fechaStr).notifier)
+                        .eliminar(citas[i].id),
                   ),
                 );
               },
@@ -403,6 +397,7 @@ class _TarjetaCita extends StatelessWidget {
       );
     }
   Future<void> _ofrecerNotificarCancelacion(BuildContext context) async {
+    if (cita.pacienteId == null) return; // paciente temporal, sin expediente
     final db = await DatabaseHelper.instance.database;
     final maps = await db.query('pacientes',
         where: 'id = ?', whereArgs: [cita.pacienteId], limit: 1);
@@ -506,14 +501,18 @@ Future<void> _mostrarRecordatorios(
     return;
   }
 
-  // Cargar pacientes de las citas del día
+  // Cargar pacientes de las citas del día (solo citas con paciente registrado)
   final db = await DatabaseHelper.instance.database;
-  final ids = citas.map((c) => "'${c.pacienteId}'").join(',');
-  final maps = await db.rawQuery(
-      'SELECT * FROM pacientes WHERE id IN ($ids)');
-  final pacientes = {
-    for (final m in maps) m['id'] as String: Paciente.fromMap(m)
-  };
+  final citasConPaciente = citas.where((c) => c.pacienteId != null).toList();
+  final ids = citasConPaciente.map((c) => "'${c.pacienteId}'").join(',');
+  final Map<String, Paciente> pacientes = {};
+  if (ids.isNotEmpty) {
+    final maps = await db.rawQuery(
+        'SELECT * FROM pacientes WHERE id IN ($ids)');
+    pacientes.addAll({
+      for (final m in maps) m['id'] as String: Paciente.fromMap(m)
+    });
+  }
 
   if (!context.mounted) return;
 
@@ -546,9 +545,22 @@ Future<void> _mostrarRecordatorios(
               controller: ctrl,
               padding: const EdgeInsets.all(12),
               itemCount: citas.length,
-              separatorBuilder: (_, _) => const SizedBox(height: 8),
+              separatorBuilder: (_, __) => const SizedBox(height: 8),
               itemBuilder: (_, i) {
                 final cita = citas[i];
+                // Paciente temporal: mostrar con datos del campo nombreTemporal
+                if (cita.esPacienteTemporal) {
+                  return ListTile(
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 8),
+                    leading: const CircleAvatar(
+                      child: Icon(Icons.person_outline, size: 18),
+                    ),
+                    title: Text(cita.nombreTemporal ?? 'Paciente sin nombre'),
+                    subtitle: Text(
+                        '${cita.hora} · ${cita.especialidad.nombre} · Sin registrar'),
+                  );
+                }
                 final paciente = pacientes[cita.pacienteId];
                 if (paciente == null) return const SizedBox.shrink();
                 return ListTile(
@@ -573,4 +585,3 @@ Future<void> _mostrarRecordatorios(
     ),
   );
 }
-

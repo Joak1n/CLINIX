@@ -51,7 +51,16 @@ class _NuevoPacienteScreenState extends ConsumerState<NuevoPacienteScreen> {
       lastDate: DateTime.now(),
       helpText: 'Fecha de nacimiento',
     );
-    if (fecha != null) setState(() => _fechaNacimiento = fecha);
+    if (fecha != null) {
+      setState(() {
+        _fechaNacimiento = fecha;
+        final hoy = DateTime.now();
+        int edad = hoy.year - fecha.year;
+        if (hoy.month < fecha.month ||
+            (hoy.month == fecha.month && hoy.day < fecha.day)) edad--;
+        _esMenor = edad < 18;
+      });
+    }
   }
 
   Future<void> _guardar() async {
@@ -280,19 +289,4 @@ class _NuevoPacienteScreenState extends ConsumerState<NuevoPacienteScreen> {
           : null,
     );
   }
-  Future<void> _seleccionarFecha() async {
-    final fecha = await showDatePicker(...);
-    if (fecha != null) {
-      setState(() {
-        _fechaNacimiento = fecha;
-        // Detectar automáticamente si es menor
-        final hoy = DateTime.now();
-        int edad = hoy.year - fecha.year;
-        if (hoy.month < fecha.month ||
-            (hoy.month == fecha.month && hoy.day < fecha.day)) edad--;
-        _esMenor = edad < 18;
-      });
-    }
-  }
 }
-

@@ -27,7 +27,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 9,
+      version: 10,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -75,7 +75,9 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE IF NOT EXISTS citas (
         id TEXT PRIMARY KEY,
-        paciente_id TEXT NOT NULL,
+        paciente_id TEXT,
+        nombre_temporal TEXT,
+        telefono_temporal TEXT,
         especialidad TEXT NOT NULL,
         fecha TEXT NOT NULL,
         hora TEXT NOT NULL,
@@ -454,6 +456,19 @@ class DatabaseHelper {
       }
     }
 
+    if (oldVersion < 10) {
+      final colsCitas = await db.rawQuery('PRAGMA table_info(citas)');
+      final nombresCitas = colsCitas.map((c) => c['name'] as String).toSet();
+
+      if (!nombresCitas.contains('nombre_temporal')) {
+        await db.execute(
+            'ALTER TABLE citas ADD COLUMN nombre_temporal TEXT');
+      }
+      if (!nombresCitas.contains('telefono_temporal')) {
+        await db.execute(
+            'ALTER TABLE citas ADD COLUMN telefono_temporal TEXT');
+      }
+    }
+
   }
 }
-

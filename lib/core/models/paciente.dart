@@ -54,12 +54,12 @@ class Paciente {
       alergias: map['alergias'],
       createdAt: map['created_at'],
       updatedAt: map['updated_at'],
-      esMenor: m['es_menor'] == 1,
-      responsableNombre: m['responsable_nombre'],
-      responsableParentesco: m['responsable_parentesco'],
-      responsableTelefono: m['responsable_telefono'],
-      responsableCurp: m['responsable_curp'],
-      consentimientoTutor: m['consentimiento_tutor'] == 1,
+      esMenor: map['es_menor'] == 1,
+      responsableNombre: map['responsable_nombre'],
+      responsableParentesco: map['responsable_parentesco'],
+      responsableTelefono: map['responsable_telefono'],
+      responsableCurp: map['responsable_curp'],
+      consentimientoTutor: map['consentimiento_tutor'] == 1,
     );
   }
 
@@ -104,4 +104,3 @@ class Paciente {
   String get nombreCompleto =>
       '$nombre $apellidoPaterno${apellidoMaterno != null ? ' $apellidoMaterno' : ''}';
 }
-
