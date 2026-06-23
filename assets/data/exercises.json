@@ -1,0 +1,6210 @@
+[
+  {
+    "id": "CO-001",
+    "name": "Plancha frontal",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-002",
+    "name": "Dead bug",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-003",
+    "name": "Hollow hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-004",
+    "name": "Mountain climber",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-005",
+    "name": "Russian twist",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-006",
+    "name": "Plancha lateral",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-007",
+    "name": "Bird dog",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-008",
+    "name": "Crunch abdominal",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-009",
+    "name": "Toe touches",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-010",
+    "name": "Plancha con toque de hombros",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-011",
+    "name": "V-ups",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-012",
+    "name": "Bicycle crunch",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-013",
+    "name": "Plank jacks",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-014",
+    "name": "Hollow rocks",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-015",
+    "name": "Side plank reach through",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Transverso",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-016",
+    "name": "Reverse crunch",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-017",
+    "name": "Superman hold",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-018",
+    "name": "Sit up completo",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-019",
+    "name": "Plancha lateral con elevación",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-020",
+    "name": "Bear crawl",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-021",
+    "name": "Dead bug alternado",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-022",
+    "name": "Plancha alta",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-023",
+    "name": "Crunch oblicuo",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-024",
+    "name": "Hollow tuck hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-025",
+    "name": "Mountain climber cruzado",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-026",
+    "name": "Plank knee to elbow",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-027",
+    "name": "Superman dinámico",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-028",
+    "name": "Sit through",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Hombros",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-029",
+    "name": "Plancha con desplazamiento",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-030",
+    "name": "Flutter kicks",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-031",
+    "name": "Hollow scissors",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-032",
+    "name": "Side plank hip dips",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-033",
+    "name": "Bear plank",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-034",
+    "name": "Crunch bicicleta lento",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-035",
+    "name": "Pike hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "psoas"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-036",
+    "name": "V-up alternado",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-037",
+    "name": "Plank walk",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-038",
+    "name": "Dragon flag asistido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "psoas"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-039",
+    "name": "Dead bug isométrico",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-040",
+    "name": "Plank to push up",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-041",
+    "name": "Hollow body pulses",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-042",
+    "name": "Side plank march",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-043",
+    "name": "Crawl frontal",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-044",
+    "name": "Crunch inverso sostenido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-045",
+    "name": "Plancha lateral estrella",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "hombros"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-046",
+    "name": "Sit up mariposa",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Aductores",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-047",
+    "name": "Hollow hold unilateral",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-048",
+    "name": "Bear crawl lateral",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-049",
+    "name": "Russian twist sostenido",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-050",
+    "name": "Plank knee drives",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-051",
+    "name": "Plancha con alcance frontal",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-052",
+    "name": "Crunch en V sostenido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-053",
+    "name": "Dead bug cruzado",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-054",
+    "name": "Side plank walk",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-055",
+    "name": "Sit up explosivo",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-056",
+    "name": "Hollow hold con brazos arriba",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-057",
+    "name": "Mountain climber rápido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-058",
+    "name": "Plancha lateral dinámica",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-059",
+    "name": "Superman alternado",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-060",
+    "name": "Crunch con pausa",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-061",
+    "name": "Bear crawl reverso",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-062",
+    "name": "Toe touch alternado",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-063",
+    "name": "Plank taps laterales",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-064",
+    "name": "Hollow hold extendido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-065",
+    "name": "Russian twist rápido",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-066",
+    "name": "Side plank crunch",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "recto abdominal"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-067",
+    "name": "Bird dog con pausa",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-068",
+    "name": "Sit through lento",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Hombros",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-069",
+    "name": "Plancha escalador lento",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-070",
+    "name": "V-sit hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-071",
+    "name": "Crunch lateral alternado",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-072",
+    "name": "Bear plank shoulder taps",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-073",
+    "name": "Hollow flutter kicks",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-074",
+    "name": "Plancha con apertura de piernas",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-075",
+    "name": "Crunch bicicleta sostenido",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-076",
+    "name": "Superman pull",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-077",
+    "name": "Pike pulses",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "psoas"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-078",
+    "name": "Mountain climber lateral",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-079",
+    "name": "Side plank reach hold",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-080",
+    "name": "Dead bug con extensión completa",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-081",
+    "name": "Sit up con giro",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-082",
+    "name": "Plancha lateral con rodilla al pecho",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-083",
+    "name": "Bear crawl isométrico",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-084",
+    "name": "Hollow body march",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-085",
+    "name": "Crunch doble",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-086",
+    "name": "Side plank con rotación",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-087",
+    "name": "Plancha militar",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-088",
+    "name": "Superman pulses",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-089",
+    "name": "Russian twist con pausa",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-090",
+    "name": "Plancha con rodillas alternadas",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-091",
+    "name": "Hollow hold con una pierna",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-092",
+    "name": "Sit through explosivo",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Hombros",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-093",
+    "name": "Bear crawl diagonal",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-094",
+    "name": "Crunch en tempo lento",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-095",
+    "name": "Side plank abduction",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-096",
+    "name": "Plank walk lateral",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-097",
+    "name": "Dead bug unilateral sostenido",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-098",
+    "name": "V-up hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-099",
+    "name": "Plancha lateral caminando",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-100",
+    "name": "Mountain climber cruzado lento",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-101",
+    "name": "Plancha con arrastre",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-102",
+    "name": "Crunch con piernas elevadas",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-103",
+    "name": "Hollow rocks alternados",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "psoas"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-104",
+    "name": "Side plank con toque al suelo",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-105",
+    "name": "Bear crawl frontal rápido",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-106",
+    "name": "Sit up parcial sostenido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-107",
+    "name": "Plancha con extensión de brazo",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-108",
+    "name": "Russian twist amplio",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-109",
+    "name": "Hollow hold dinámico",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-110",
+    "name": "Plancha lateral con alcance",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-111",
+    "name": "Superman con pausa",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-112",
+    "name": "Crunch cruzado",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-113",
+    "name": "Plank knee taps",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-114",
+    "name": "V-sit alternado",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-115",
+    "name": "Side plank con rotación lenta",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Transverso",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-116",
+    "name": "Bear crawl con pausa",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-117",
+    "name": "Crunch isométrico",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-118",
+    "name": "Hollow hold con toque de pies",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-119",
+    "name": "Mountain climber isométrico",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Hombros",
+      "psoas"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-120",
+    "name": "Sit through unilateral",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-121",
+    "name": "Plancha con toque de rodilla",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "hombros"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-122",
+    "name": "Russian twist extendido",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-123",
+    "name": "Superman alternado sostenido",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-124",
+    "name": "Side plank pulses",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-125",
+    "name": "Hollow hold con rodillas flexionadas",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-126",
+    "name": "Bear crawl lateral rápido",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-127",
+    "name": "Crunch con elevación de piernas",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-128",
+    "name": "Plancha con alcance lateral",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-129",
+    "name": "Sit up con pausa arriba",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-130",
+    "name": "Hollow flutter hold",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-131",
+    "name": "Side plank alternado",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-132",
+    "name": "Plank walk frontal",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-133",
+    "name": "Superman en tempo lento",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-134",
+    "name": "Russian twist unilateral",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-135",
+    "name": "Bear plank unilateral",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-136",
+    "name": "Hollow body kicks",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-137",
+    "name": "Crunch lateral sostenido",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-138",
+    "name": "Sit through continuo",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Hombros",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-139",
+    "name": "Plancha con apoyo reducido",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo mayor"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-140",
+    "name": "Mountain climber explosivo",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "hombros"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-141",
+    "name": "V-up en tempo lento",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-142",
+    "name": "Side plank con pierna elevada",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "deltoides"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-143",
+    "name": "Hollow hold con brazos alternados",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Transverso",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-144",
+    "name": "Bear crawl diagonal lento",
+    "category": "Core",
+    "mainMuscle": "Transverso abdominal",
+    "secondaryMuscles": [
+      "Deltoides",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-145",
+    "name": "Crunch doble sostenido",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-146",
+    "name": "Plancha con rodilla al pecho",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "deltoides"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-147",
+    "name": "Russian twist explosivo",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-148",
+    "name": "Superman hold unilateral",
+    "category": "Core",
+    "mainMuscle": "Erectores espinales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-149",
+    "name": "Hollow march alternado",
+    "category": "Core",
+    "mainMuscle": "Recto abdominal",
+    "secondaryMuscles": [
+      "Psoas",
+      "transverso"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "CO-150",
+    "name": "Plancha lateral con crunch",
+    "category": "Core",
+    "mainMuscle": "Oblicuos",
+    "secondaryMuscles": [
+      "Recto abdominal",
+      "glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-001",
+    "name": "Sentadilla básica",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-002",
+    "name": "Sentadilla profunda",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "aductores"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-003",
+    "name": "Sentadilla con pausa",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Core",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad lumbo-pélvica",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-004",
+    "name": "Sentadilla sumo",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-005",
+    "name": "Sentadilla sumo con pausa",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-006",
+    "name": "Sentadilla cerrada",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-007",
+    "name": "Sentadilla tempo 5-1-1",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-008",
+    "name": "Sentadilla isométrica en pared",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-009",
+    "name": "Sentadilla con elevación de talón",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-010",
+    "name": "Sentadilla con brazos arriba",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-011",
+    "name": "Sentadilla con salto",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-012",
+    "name": "Jump squat profundo",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-013",
+    "name": "Squat jack",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-014",
+    "name": "Sentadilla búlgara",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-015",
+    "name": "Sentadilla búlgara con pausa",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-016",
+    "name": "Sentadilla búlgara explosiva",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-017",
+    "name": "Desplante frontal",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-018",
+    "name": "Desplante reverso",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-019",
+    "name": "Desplante lateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-020",
+    "name": "Desplante cruzado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Aductores"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-021",
+    "name": "Puente de glúteo básico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad lumbo-pélvica",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-022",
+    "name": "Puente de glúteo unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-023",
+    "name": "Puente de glúteo isométrico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-024",
+    "name": "Hip thrust en piso",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-025",
+    "name": "Hip thrust unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-026",
+    "name": "Frog pumps",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Aductores"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-027",
+    "name": "Donkey kicks",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-028",
+    "name": "Fire hydrants",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Tensor fascia lata"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-029",
+    "name": "Patada posterior extendida",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Activación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-030",
+    "name": "Abducción lateral acostado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Tensor fascia lata"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-031",
+    "name": "Clamshell sin banda",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Aductores"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-032",
+    "name": "Copenhagen plank corto",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Oblicuos"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-033",
+    "name": "Copenhagen plank largo",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad lumbo-pélvica",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-034",
+    "name": "Step-up sin carga",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-035",
+    "name": "Step-up explosivo",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-036",
+    "name": "Pistol squat asistida",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Core",
+      "glúteo mayor"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-037",
+    "name": "Pistol squat completa",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Elite",
+    "impact": "Medio",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-038",
+    "name": "Cossack squat",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-039",
+    "name": "Cossack squat con pausa",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-040",
+    "name": "Desplante caminando",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-041",
+    "name": "Desplante pliométrico",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-042",
+    "name": "Desplante lateral dinámico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Aductores"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-043",
+    "name": "Split squat isométrica",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-044",
+    "name": "Reverse Nordic curl",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-045",
+    "name": "Nordic curl asistido",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-046",
+    "name": "Buenos días sin carga",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-047",
+    "name": "Buenos días unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-048",
+    "name": "Peso muerto a una pierna sin carga",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad lumbo-pélvica",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-049",
+    "name": "Peso muerto avión",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-050",
+    "name": "Elevación de talones bilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Rigidez tendinosa",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-051",
+    "name": "Elevación de talón unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-052",
+    "name": "Elevación de talón isométrica",
+    "category": "Tren inferior",
+    "mainMuscle": "Sóleo",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-053",
+    "name": "Tibialis raises pared",
+    "category": "Tren inferior",
+    "mainMuscle": "Tibial anterior",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-054",
+    "name": "Saltos en línea frontal",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Elasticidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-055",
+    "name": "Saltos laterales cortos",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-056",
+    "name": "Skater jumps",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-057",
+    "name": "Bounds alternados",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Aceleración",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-058",
+    "name": "Broad jump",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-059",
+    "name": "Broad jump con aterrizaje controlado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Desaceleración",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-060",
+    "name": "Drop squat",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-061",
+    "name": "Squat pulse",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-062",
+    "name": "Sentadilla 1 y media",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Fuerza máxima",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-063",
+    "name": "Sentadilla lateral alternada",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-064",
+    "name": "Monster walk imaginario",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Tensor fascia lata"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-065",
+    "name": "Wall sit unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-066",
+    "name": "Wall sit con elevación de talón",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Rigidez tendinosa",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-067",
+    "name": "Marcha de glúteo puente",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad lumbo-pélvica",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-068",
+    "name": "Hip airplane asistido",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-069",
+    "name": "Sentadilla cosaca dinámica",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-070",
+    "name": "Saltos de pantorrilla rápidos",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Elasticidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-072",
+    "name": "Step down controlado",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "isquiotibiales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-073",
+    "name": "Split squat con pausa",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-074",
+    "name": "Sentadilla sumo isométrica",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-075",
+    "name": "Elevación unilateral de talón",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo",
+      "tibial anterior"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-076",
+    "name": "Squat pulse",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "gastrocnemios"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-077",
+    "name": "Monster walk sin banda",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Tensor fascia lata",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-078",
+    "name": "Sentadilla profunda sostenida",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Aductores",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-079",
+    "name": "Lunge lateral dinámico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Aductores",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-080",
+    "name": "Broad jump unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-081",
+    "name": "Bounds cortos alternados",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Reactividad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-082",
+    "name": "Squat to calf raise",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-083",
+    "name": "Step back lunge",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-084",
+    "name": "Hip airplane dinámico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Core",
+      "isquiotibiales"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-085",
+    "name": "Nordic curl asistido",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-086",
+    "name": "Wall sit unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-087",
+    "name": "Frog bridge pulsos",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "aductores"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-088",
+    "name": "Saltos laterales cortos",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "sóleo"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-089",
+    "name": "Sentadilla con desplazamiento lateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "aductores"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-090",
+    "name": "Peso muerto unilateral reach",
+    "category": "Tren inferior",
+    "mainMuscle": "Isquiotibiales",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-091",
+    "name": "Lunge cruzado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Aductores",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-092",
+    "name": "Squat jump reactivo",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Reactividad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-093",
+    "name": "Marcha de glúteo",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Activación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-094",
+    "name": "Puente unilateral sostenido",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core",
+      "isquiotibiales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-095",
+    "name": "Sentadilla búlgara isométrica",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-096",
+    "name": "Pogo jumps",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo",
+      "tibial anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Reactividad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-097",
+    "name": "Cossack squat asistida",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "isquiotibiales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-098",
+    "name": "Sprint en pared",
+    "category": "Tren inferior",
+    "mainMuscle": "Psoas",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Aceleración",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-099",
+    "name": "Desplante explosivo alternado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-100",
+    "name": "Sit through dinámico",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Core",
+      "hombros"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-101",
+    "name": "Patinador lateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-102",
+    "name": "Sentadilla tempo 3-1-1",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-103",
+    "name": "Hip thrust unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-104",
+    "name": "Elevación tibial de pie",
+    "category": "Tren inferior",
+    "mainMuscle": "Tibial anterior",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "sóleo"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-105",
+    "name": "Reverse nordic curl",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Psoas",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-106",
+    "name": "Saltos en línea frontal",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo",
+      "cuádriceps"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-107",
+    "name": "Squat jack",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "gastrocnemios"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-108",
+    "name": "Zancada lateral sostenida",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "isquiotibiales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-109",
+    "name": "Isométrico de pantorrilla",
+    "category": "Tren inferior",
+    "mainMuscle": "Sóleo",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "tibial anterior"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-110",
+    "name": "Sentadilla con rebote",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "gastrocnemios"
+    ],
+    "level": "Intermedio",
+    "impact": "Alto",
+    "objective": "Reactividad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-111",
+    "name": "Bounding unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Isquiotibiales",
+      "gastrocnemios"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Velocidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-112",
+    "name": "Lunge con rodilla alta",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Psoas",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-113",
+    "name": "Puente de glúteo marchado",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Core",
+      "isquiotibiales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-114",
+    "name": "Sentadilla lateral profunda",
+    "category": "Tren inferior",
+    "mainMuscle": "Aductores",
+    "secondaryMuscles": [
+      "Glúteo medio",
+      "cuádriceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-115",
+    "name": "Single leg pogo",
+    "category": "Tren inferior",
+    "mainMuscle": "Gastrocnemios",
+    "secondaryMuscles": [
+      "Sóleo",
+      "glúteo medio"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Reactividad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-116",
+    "name": "Desplazamiento defensivo",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo medio",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "aductores"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-117",
+    "name": "Squat hold con elevación talones",
+    "category": "Tren inferior",
+    "mainMuscle": "Cuádriceps",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-118",
+    "name": "Drop squat",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-119",
+    "name": "Sentadilla con toque al suelo",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Cuádriceps",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TI-120",
+    "name": "Triple hop unilateral",
+    "category": "Tren inferior",
+    "mainMuscle": "Glúteo mayor",
+    "secondaryMuscles": [
+      "Gastrocnemios",
+      "isquiotibiales"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-001",
+    "name": "Push up clásico",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-002",
+    "name": "Push up con pausa",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-003",
+    "name": "Flexiones inclinadas",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides anterior",
+      "tríceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-004",
+    "name": "Flexiones declinadas",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral superior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-005",
+    "name": "Pike push up",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-006",
+    "name": "Push up explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-007",
+    "name": "Push up diamante",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-008",
+    "name": "Shoulder taps",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Core",
+      "pectoral mayor"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-009",
+    "name": "Bear crawl",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Core",
+      "serrato anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-010",
+    "name": "Superman pull",
+    "category": "Tren superior",
+    "mainMuscle": "Dorsal ancho",
+    "secondaryMuscles": [
+      "Trapecio",
+      "erectores espinales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-011",
+    "name": "Push up archer asistido",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-012",
+    "name": "Plancha con desplazamiento",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-013",
+    "name": "Push up tempo lento",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-014",
+    "name": "Crab walk",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "glúteo mayor"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-015",
+    "name": "Wall push up",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "serrato anterior"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-016",
+    "name": "Push up con toque de hombro",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Core",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-017",
+    "name": "Dive bomber push up",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-018",
+    "name": "Superman hold",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Erectores espinales",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-019",
+    "name": "Push up cerrado",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-020",
+    "name": "Plancha alta",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-021",
+    "name": "Flexión explosiva con palmada",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-022",
+    "name": "Pike hold",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-023",
+    "name": "Push up unilateral asistido",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-024",
+    "name": "Superman alternado",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-025",
+    "name": "Bear crawl lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-026",
+    "name": "Push up con apertura",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides anterior",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-027",
+    "name": "Crab toe touch",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Core",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-028",
+    "name": "Push up escalonado",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-029",
+    "name": "Plancha militar",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-030",
+    "name": "Wall slides",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio inferior",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "deltoides posterior"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-031",
+    "name": "Push up isométrico abajo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-032",
+    "name": "Bear plank shoulder taps",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Core",
+      "serrato anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-033",
+    "name": "Push up alternando manos",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-034",
+    "name": "Superman pulses",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-035",
+    "name": "Pike push up profundo",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-036",
+    "name": "Push up lento excéntrico",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-037",
+    "name": "Crab walk reverso",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-038",
+    "name": "Push up con rodilla al codo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-039",
+    "name": "Plancha con alcance lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-040",
+    "name": "Flexiones parciales rápidas",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-041",
+    "name": "Push up hindu",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-042",
+    "name": "Superman Y-T-W",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-043",
+    "name": "Push up alternado explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-044",
+    "name": "Bear crawl diagonal",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-045",
+    "name": "Plancha con apoyo reducido",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-046",
+    "name": "Flexión tipo esfinge",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Deltoides anterior",
+      "pectoral mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-047",
+    "name": "Crab reach",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Core",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-048",
+    "name": "Push up pliométrico corto",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-049",
+    "name": "Plancha con desplazamiento lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-050",
+    "name": "Superman hold con brazos extendidos",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-051",
+    "name": "Push up pseudo planche",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-052",
+    "name": "Flexiones en T",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Oblicuos",
+      "deltoides"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-053",
+    "name": "Pike push up isométrico",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-054",
+    "name": "Bear crawl rápido",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-055",
+    "name": "Superman snow angels",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-056",
+    "name": "Push up con pies elevados",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral superior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-057",
+    "name": "Crab walk lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-058",
+    "name": "Plancha alta con alcance",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-059",
+    "name": "Push up alternado lento",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-060",
+    "name": "Pike shoulder taps",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-061",
+    "name": "Flexión hindu con pausa",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-062",
+    "name": "Superman Y hold",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio inferior",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-063",
+    "name": "Push up con rebote",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-064",
+    "name": "Bear plank reach",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-065",
+    "name": "Push up diamante lento",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-066",
+    "name": "Crab toe touch alternado",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Core",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-067",
+    "name": "Plancha con apertura de brazos",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-068",
+    "name": "Push up militar",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Deltoides anterior",
+      "pectoral mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-069",
+    "name": "Superman T raise",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-070",
+    "name": "Flexión excéntrica unilateral",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-071",
+    "name": "Pike push up explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-072",
+    "name": "Bear crawl con toque",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-073",
+    "name": "Push up tempo 3-1-1",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-074",
+    "name": "Crab bridge hold",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "tríceps"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-075",
+    "name": "Plancha baja con alcance",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-076",
+    "name": "Push up staggered",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-077",
+    "name": "Superman W raise",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-078",
+    "name": "Pike hold unilateral",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-079",
+    "name": "Push up con desplazamiento lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-080",
+    "name": "Bear crawl reverso rápido",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-081",
+    "name": "Flexiones archer alternadas",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-082",
+    "name": "Crab reach alternado",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-083",
+    "name": "Plancha con elevación de brazo",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-084",
+    "name": "Push up pliométrico lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-085",
+    "name": "Superman hold T",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-086",
+    "name": "Pike push up lento",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-087",
+    "name": "Bear crawl cruzado",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-088",
+    "name": "Flexión con parada abajo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-089",
+    "name": "Crab walk frontal",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-090",
+    "name": "Plancha alta alternando brazos",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-091",
+    "name": "Push up diamante explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-092",
+    "name": "Superman pull lento",
+    "category": "Tren superior",
+    "mainMuscle": "Dorsal ancho",
+    "secondaryMuscles": [
+      "Trapecio",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-093",
+    "name": "Pike push up parcial",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-094",
+    "name": "Bear plank lateral taps",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-095",
+    "name": "Push up escalonado lento",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-096",
+    "name": "Crab bridge march",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Glúteo mayor",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-097",
+    "name": "Plancha baja dinámica",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-098",
+    "name": "Flexiones tipo esfinge lentas",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Deltoides anterior",
+      "pectoral mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-099",
+    "name": "Superman pulses rápidos",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-100",
+    "name": "Push up con rodillas rápidas",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Core",
+      "tríceps"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-101",
+    "name": "Push up en déficit improvisado",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-102",
+    "name": "Pike walk",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-103",
+    "name": "Push up con toque al pecho",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-104",
+    "name": "Superman swimmers",
+    "category": "Tren superior",
+    "mainMuscle": "Dorsal ancho",
+    "secondaryMuscles": [
+      "Trapecio",
+      "erectores espinales"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-105",
+    "name": "Bear crawl con cambio de dirección",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-106",
+    "name": "Push up con apoyo cerrado",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-107",
+    "name": "Plancha con desplazamiento frontal",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-108",
+    "name": "Pike push up unilateral asistido",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-109",
+    "name": "Crab walk con pausa",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-110",
+    "name": "Push up alternando altura",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-111",
+    "name": "Superman hold Y-T-W",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-112",
+    "name": "Push up con salida lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-113",
+    "name": "Bear plank dinámico",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-114",
+    "name": "Pike hold con elevación alternada",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-115",
+    "name": "Flexión con cambio de apoyo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-116",
+    "name": "Superman reverse fly",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Trapecio medio",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-117",
+    "name": "Push up con rodillas suspendidas",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Core",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-118",
+    "name": "Bear crawl con pausa isométrica",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-119",
+    "name": "Pike push up tempo lento",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-120",
+    "name": "Crab bridge dinámico",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-121",
+    "name": "Push up lateral explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-122",
+    "name": "Superman hold unilateral extendido",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "erectores espinales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-123",
+    "name": "Plancha con paso lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-124",
+    "name": "Push up diamante con pausa",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-125",
+    "name": "Bear crawl en retroceso",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-126",
+    "name": "Pike push up parcial isométrico",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-127",
+    "name": "Push up en tempo 5-0-1",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-128",
+    "name": "Superman con retracción escapular",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "deltoides posterior"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-129",
+    "name": "Crab walk diagonal",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Agilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-130",
+    "name": "Push up cerrado explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-131",
+    "name": "Plancha con apoyo unilateral",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-132",
+    "name": "Pike shoulder taps lentos",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-133",
+    "name": "Push up con apertura alternada",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-134",
+    "name": "Superman pull con pausa",
+    "category": "Tren superior",
+    "mainMuscle": "Dorsal ancho",
+    "secondaryMuscles": [
+      "Trapecio",
+      "erectores espinales"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Hipertrofia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-135",
+    "name": "Bear crawl frontal lento",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-136",
+    "name": "Push up en diamante parcial",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Básico",
+    "impact": "Medio",
+    "objective": "Resistencia muscular",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-137",
+    "name": "Pike hold profundo",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Avanzado",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-138",
+    "name": "Crab bridge con alcance",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Dorsal ancho",
+      "glúteo mayor"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Movilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-139",
+    "name": "Push up con desplazamiento frontal",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Deltoides",
+      "tríceps"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-140",
+    "name": "Superman snow angel lento",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio medio",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Prevención de lesión",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-141",
+    "name": "Bear plank con alcance lateral",
+    "category": "Tren superior",
+    "mainMuscle": "Serrato anterior",
+    "secondaryMuscles": [
+      "Deltoides",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-142",
+    "name": "Push up explosivo alternado",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-143",
+    "name": "Pike push up unilateral lento",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "trapecio"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-144",
+    "name": "Crab walk rápido",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides posterior",
+    "secondaryMuscles": [
+      "Tríceps",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Resistencia",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-145",
+    "name": "Push up con parada media",
+    "category": "Tren superior",
+    "mainMuscle": "Pectoral mayor",
+    "secondaryMuscles": [
+      "Tríceps",
+      "deltoides anterior"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Estabilidad",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-146",
+    "name": "Superman Y-T alternado",
+    "category": "Tren superior",
+    "mainMuscle": "Trapecio inferior",
+    "secondaryMuscles": [
+      "Deltoides posterior",
+      "dorsal ancho"
+    ],
+    "level": "Intermedio",
+    "impact": "Bajo",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-147",
+    "name": "Bear crawl lateral lento",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides",
+    "secondaryMuscles": [
+      "Serrato anterior",
+      "core"
+    ],
+    "level": "Básico",
+    "impact": "Bajo",
+    "objective": "Control motor",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-148",
+    "name": "Push up pseudo planche hold",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "tríceps"
+    ],
+    "level": "Avanzado",
+    "impact": "Medio",
+    "objective": "Fuerza",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-149",
+    "name": "Pike walk reverso",
+    "category": "Tren superior",
+    "mainMuscle": "Deltoides anterior",
+    "secondaryMuscles": [
+      "Trapecio",
+      "core"
+    ],
+    "level": "Intermedio",
+    "impact": "Medio",
+    "objective": "Coordinación",
+    "imagePath": "",
+    "videoURL": ""
+  },
+  {
+    "id": "TS-150",
+    "name": "Push up militar explosivo",
+    "category": "Tren superior",
+    "mainMuscle": "Tríceps",
+    "secondaryMuscles": [
+      "Pectoral mayor",
+      "deltoides anterior"
+    ],
+    "level": "Avanzado",
+    "impact": "Alto",
+    "objective": "Potencia",
+    "imagePath": "",
+    "videoURL": ""
+  }
+]
