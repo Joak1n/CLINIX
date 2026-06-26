@@ -26,6 +26,7 @@ import 'comprobante_screen.dart';
 import '../rutinas/generador_rutinas_screen.dart';
 import 'adjuntos_screen.dart';
 import '../../core/models/adjunto.dart';
+import 'bitacora_progreso_screen.dart';
 
 class ExpedienteScreen extends ConsumerWidget {
   final Paciente paciente;
@@ -54,65 +55,113 @@ class ExpedienteScreen extends ConsumerWidget {
           ],
         ),
         actions: [
-
-          IconButton(    // Botón para generar comprobante
-            icon: const Icon(Icons.receipt_long_outlined),
-            tooltip: 'Generar comprobante',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) =>
-                    ComprobanteScreen(paciente: paciente),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            tooltip: 'Opciones',
+            itemBuilder: (_) => [
+              const PopupMenuItem(
+                value: 'bitacora',
+                child: ListTile(
+                  leading: Icon(Icons.track_changes_outlined, color: Colors.teal),
+                  title: Text('Bitácora de progreso'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
-            ),
-          ),
-
-          IconButton(    // Botón para ver signos vitales
-            icon: const Icon(Icons.monitor_heart_outlined),
-            tooltip: 'Signos vitales',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => SignosVitalesScreen(paciente: paciente),
+              const PopupMenuDivider(),
+              const PopupMenuItem(
+                value: 'signos',
+                child: ListTile(
+                  leading: Icon(Icons.monitor_heart_outlined),
+                  title: Text('Signos vitales'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
-            ),
-          ),
-          IconButton(    // Botón para ver historia clínica
-            icon: const Icon(Icons.history_edu_outlined),
-            tooltip: 'Historia clínica',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => HistoriaClinicaScreen(paciente: paciente),
+              const PopupMenuItem(
+                value: 'historia',
+                child: ListTile(
+                  leading: Icon(Icons.history_edu_outlined),
+                  title: Text('Historia clínica'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
-            ),
-          ),
-          IconButton(    // Botón para exportar a PDF
-            icon: const Icon(Icons.picture_as_pdf_outlined),
-            tooltip: 'Exportar a PDF',
-            onPressed: () => _exportarPdf(context, paciente),
-          ),
-          IconButton(    // Nuevo botón para generar rutina
-            icon: const Icon(Icons.fitness_center_outlined),
-            tooltip: 'Generar rutina',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => GeneradorRutinasScreen(
-                    paciente: paciente),
+              const PopupMenuItem(
+                value: 'rutina',
+                child: ListTile(
+                  leading: Icon(Icons.fitness_center_outlined),
+                  title: Text('Generar rutina'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.folder_outlined),
-            tooltip: 'Estudios adjuntos',
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) =>
-                    AdjuntosScreen(paciente: paciente),
+              const PopupMenuItem(
+                value: 'adjuntos',
+                child: ListTile(
+                  leading: Icon(Icons.folder_outlined),
+                  title: Text('Estudios adjuntos'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
               ),
-            ),
+              const PopupMenuDivider(),
+              const PopupMenuItem(
+                value: 'comprobante',
+                child: ListTile(
+                  leading: Icon(Icons.receipt_long_outlined),
+                  title: Text('Comprobante de cita'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'pdf',
+                child: ListTile(
+                  leading: Icon(Icons.picture_as_pdf_outlined, color: Colors.red),
+                  title: Text('Exportar PDF'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+            ],
+            onSelected: (value) {
+              switch (value) {
+                case 'bitacora':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => BitacoraProgresoScreen(paciente: paciente),
+                  )).then((_) => ref.invalidate(notasProvider(paciente.id)));
+                  break;
+                case 'signos':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => SignosVitalesScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'historia':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => HistoriaClinicaScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'rutina':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => GeneradorRutinasScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'adjuntos':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => AdjuntosScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'comprobante':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => ComprobanteScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'pdf':
+                  _exportarPdf(context, paciente);
+                  break;
+              }
+            },
           ),
         ],
       ),
@@ -559,4 +608,3 @@ Future<void> _exportarPdf(
         }
       }
     }
-

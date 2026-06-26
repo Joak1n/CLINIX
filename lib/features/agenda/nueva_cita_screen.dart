@@ -8,6 +8,8 @@ import '../../core/database/database_helper.dart';
 import '../agenda/agenda_provider.dart';
 import '../auth/auth_provider.dart';
 import '../../shared/widgets/whatsapp_buttons.dart';
+import '../../core/services/horario_service.dart';
+import '../../core/services/configuracion_service.dart';
 
 class NuevaCitaScreen extends ConsumerStatefulWidget {
   const NuevaCitaScreen({super.key});
@@ -110,6 +112,112 @@ class _NuevaCitaScreenState extends ConsumerState<NuevaCitaScreen> {
       return;
     }
 
+    // ── Validar horario, bloqueos y capacidad ──────────────────────────────
+    final conflicto = await _validarDisponibilidad();
+    if (conflicto != null) {
+      if (mounted) {
+        await showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Row(children: [
+              Icon(Icons.warning_amber_rounded, color: Colors.orange),
+              SizedBox(width: 8),
+              Text('Conflicto de horario'),
+            ]),
+            content: Text(conflicto),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Entendido'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Agendar de todas formas'),
+              ),
+            ],
+          ),
+        ).then((forzar) {
+          if (forzar != true) return;
+          _crearCita(); // continuar si el usuario acepta
+        });
+      }
+      return;
+    }
+    // ── Sin conflicto: crear directamente ─────────────────────────────────
+    await _crearCita();
+  }
+
+  /// Revisa horario de atención, bloqueos y capacidad simultánea.
+  /// Retorna null si todo está bien, o un mensaje descriptivo del conflicto.
+  Future<String?> _validarDisponibilidad() async {
+    final fechaStr = _formatFecha(_fecha);
+    final horaStr = _formatHora(_hora);
+    final diaSemana = _fecha.weekday; // 1=Lun…7=Dom
+
+    // 1. ¿El consultorio atiende ese día?
+    final horario = await HorarioService.obtenerHorarioDia(diaSemana);
+    if (horario == null || !horario.activo) {
+      final dias = ['', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
+      return 'El consultorio no atiende los ${dias[diaSemana]}s.\n\n'
+          'Puedes ajustar los días de atención en Configuración → Horarios.';
+    }
+
+    // 2. ¿La hora está dentro del horario de atención?
+    final duracion = await ConfiguracionService.getDuracionCita();
+    final slotsValidos = horario.slots(duracion);
+    if (!slotsValidos.contains(horaStr)) {
+      return 'El horario $horaStr está fuera del horario de atención '
+          '(${horario.horaInicio} – ${horario.horaFin}).\n\n'
+          'Selecciona una hora dentro del horario del consultorio.';
+    }
+
+    // 3. ¿Hay algún bloqueo activo para esa fecha/hora?
+    final bloqueos = await HorarioService.obtenerBloqueos();
+    for (final b in bloqueos) {
+      if (b.bloqueaSlot(fechaStr, horaStr)) {
+        return b.esDiaCompleto
+            ? 'El día ${b.rangoFechaTexto} está bloqueado en la agenda.\n\n'
+                'Puedes eliminar el bloqueo en Configuración → Horarios → Bloqueos.'
+            : 'El horario $horaStr está bloqueado '
+                '(${b.horaInicio} – ${b.horaFin}) el ${b.rangoFechaTexto}.\n\n'
+                'Puedes eliminar el bloqueo en Configuración → Horarios → Bloqueos.';
+      }
+    }
+
+    // 4. ¿Hay capacidad disponible (terapeutas simultáneos)?
+    final terapeutasSimultaneos = await ConfiguracionService.getTerapeutasSimultaneos();
+    final db = await DatabaseHelper.instance.database;
+    final citasEnSlot = await db.query(
+      'citas',
+      where: 'fecha = ? AND hora = ? AND estado != ?',
+      whereArgs: [fechaStr, horaStr, 'cancelada'],
+    );
+    if (citasEnSlot.length >= terapeutasSimultaneos) {
+      return 'El horario $horaStr ya tiene ${citasEnSlot.length} '
+          '${citasEnSlot.length == 1 ? 'cita agendada' : 'citas agendadas'}, '
+          'que es el máximo de atención simultánea configurado ($terapeutasSimultaneos).\n\n'
+          'Selecciona otro horario o aumenta la capacidad en Configuración → Horarios.';
+    }
+
+    // 5. ¿El terapeuta ya tiene cita en ese horario?
+    if (_terapeutaSeleccionado != null) {
+      final citasTerapeuta = await db.query(
+        'citas',
+        where: 'fecha = ? AND hora = ? AND terapeuta = ? AND estado != ?',
+        whereArgs: [fechaStr, horaStr, _terapeutaSeleccionado!.nombre, 'cancelada'],
+      );
+      if (citasTerapeuta.isNotEmpty) {
+        return '${_terapeutaSeleccionado!.nombre} ya tiene una cita agendada '
+            'a las $horaStr.\n\n'
+            'Selecciona otro horario u otro terapeuta.';
+      }
+    }
+
+    return null; // todo OK
+  }
+
+  /// Crea la cita en BD (extraído de _guardar para poder llamarlo desde dos lugares)
+  Future<void> _crearCita() async {
     setState(() => _guardando = true);
     try {
       final cita = await ref.read(citaRepositoryProvider).crear(

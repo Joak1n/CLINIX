@@ -111,44 +111,60 @@ class _PacientesScreenState
                     children: [
                       Icon(orden.icono, size: 20),
                       const SizedBox(width: 4),
-                      Text(orden.etiqueta,
-                          style: const TextStyle(
-                              fontSize: 12)),
-                      const Icon(Icons.arrow_drop_down,
-                          size: 18),
+                      Text(orden.etiquetaCorta,
+                          style: const TextStyle(fontSize: 12)),
+                      const Icon(Icons.arrow_drop_down, size: 18),
                     ],
                   ),
                   onSelected: (nuevoOrden) {
-                    ref
-                        .read(ordenPacientesProvider
-                            .notifier)
-                        .state = nuevoOrden;
-                    ref.invalidate(
-                        pacientesFiltradosProvider);
+                    ref.read(ordenPacientesProvider.notifier).state = nuevoOrden;
+                    ref.invalidate(pacientesFiltradosProvider);
                   },
-                  itemBuilder: (_) =>
-                      OrdenPacientes.values
-                          .map((o) => PopupMenuItem(
-                                value: o,
-                                child: Row(
-                                  children: [
-                                    Icon(o.icono,
-                                        size: 18),
-                                    const SizedBox(
-                                        width: 8),
-                                    Text(o.etiqueta),
-                                    if (o == orden) ...[
-                                      const Spacer(),
-                                      const Icon(
-                                          Icons.check,
-                                          size: 16,
-                                          color:
-                                              Colors.teal),
-                                    ],
-                                  ],
-                                ),
-                              ))
-                          .toList(),
+                  itemBuilder: (_) => [
+                    const PopupMenuItem(
+                      enabled: false,
+                      height: 28,
+                      child: Text('Por apellido',
+                          style: TextStyle(fontSize: 11, color: Colors.grey, fontWeight: FontWeight.w600)),
+                    ),
+                    ...[OrdenPacientes.apellidoAsc, OrdenPacientes.apellidoDesc].map((o) =>
+                      PopupMenuItem(
+                        value: o,
+                        child: Row(children: [
+                          Icon(o.icono, size: 18),
+                          const SizedBox(width: 8),
+                          Text(o.etiqueta),
+                          if (o == orden) ...[const Spacer(), const Icon(Icons.check, size: 16, color: Colors.teal)],
+                        ]),
+                      )),
+                    const PopupMenuDivider(),
+                    const PopupMenuItem(
+                      enabled: false,
+                      height: 28,
+                      child: Text('Por nombre',
+                          style: TextStyle(fontSize: 11, color: Colors.grey, fontWeight: FontWeight.w600)),
+                    ),
+                    ...[OrdenPacientes.nombreAsc, OrdenPacientes.nombreDesc].map((o) =>
+                      PopupMenuItem(
+                        value: o,
+                        child: Row(children: [
+                          Icon(o.icono, size: 18),
+                          const SizedBox(width: 8),
+                          Text(o.etiqueta),
+                          if (o == orden) ...[const Spacer(), const Icon(Icons.check, size: 16, color: Colors.teal)],
+                        ]),
+                      )),
+                    const PopupMenuDivider(),
+                    PopupMenuItem(
+                      value: OrdenPacientes.recientes,
+                      child: Row(children: [
+                        Icon(OrdenPacientes.recientes.icono, size: 18),
+                        const SizedBox(width: 8),
+                        Text(OrdenPacientes.recientes.etiqueta),
+                        if (OrdenPacientes.recientes == orden) ...[const Spacer(), const Icon(Icons.check, size: 16, color: Colors.teal)],
+                      ]),
+                    ),
+                  ],
                 );
               },
             ),
@@ -383,4 +399,3 @@ class _PacientesScreenState
     );
   }
 }
-

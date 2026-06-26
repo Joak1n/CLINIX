@@ -9,6 +9,8 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import '../../core/providers/tema_provider.dart';
 import 'especialidad_provider.dart';
 import '../../core/models/especialidad_personalizada.dart';
+import 'migracion_screen.dart';
+import 'horarios_screen.dart';
 
 class ConfiguracionScreen extends ConsumerStatefulWidget {
   const ConfiguracionScreen({super.key});
@@ -488,6 +490,46 @@ class _ConfiguracionScreenState
                         strokeWidth: 2))
                 : const Icon(Icons.save),
             label: const Text('Guardar configuración'),
+          ),
+          const SizedBox(height: 32),
+          const Divider(),
+          const SizedBox(height: 16),
+          const Text('Horarios y disponibilidad',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+          const SizedBox(height: 6),
+          const Text(
+            'Configura horarios de atención por día, bloqueos y envía disponibilidad por WhatsApp.',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            icon: const Icon(Icons.schedule_outlined),
+            label: const Text('Configurar horarios'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const HorariosScreen()),
+            ),
+          ),
+          const SizedBox(height: 32),
+          const Divider(),
+          const SizedBox(height: 16),
+          const Text('Supabase del consultorio',
+              style: TextStyle(
+                  fontWeight: FontWeight.w600, fontSize: 14)),
+          const SizedBox(height: 6),
+          const Text(
+            'Migra tus datos a tu propio proyecto Supabase para mayor privacidad y control.',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            icon: const Icon(Icons.move_up),
+            label: const Text('Migrar a Supabase propio'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => const MigracionScreen()),
+            ),
           ),
           const SizedBox(height: 16),
         ],

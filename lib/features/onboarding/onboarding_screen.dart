@@ -8,7 +8,8 @@ import '../auth/login_screen.dart';
 import '../auth/auth_provider.dart';
 import '../../main.dart' show HomeShell;
 import 'package:sqflite/sqflite.dart';
-import '../../../core/services/supabase_service.dart';
+import '../../core/services/supabase_service.dart';
+import '../../core/services/migration_service.dart';
 import '../../core/utils/hash_util.dart';
 import '../../shared/widgets/consultorio_header.dart';
 
@@ -260,8 +261,13 @@ class _PasoCrearConsultorioState
   final _emailAdmin = TextEditingController();
   final _passwordAdmin = TextEditingController();
   final _codigoAcceso = TextEditingController();
+  final _supabaseUrl = TextEditingController();
+  final _supabaseAnonKey = TextEditingController();
   bool _verPassword = false;
   bool _guardando = false;
+  bool _verificandoSupabase = false;
+  bool? _supabaseValido;
+  String? _supabaseError;
   String? _logoPath;
 
   @override
@@ -273,6 +279,8 @@ class _PasoCrearConsultorioState
     _emailAdmin.dispose();
     _passwordAdmin.dispose();
     _codigoAcceso.dispose();
+    _supabaseUrl.dispose();
+    _supabaseAnonKey.dispose();
     super.dispose();
   }
 
@@ -289,8 +297,45 @@ class _PasoCrearConsultorioState
     }
   }
 
+  Future<void> _verificarSupabase() async {
+    final url = _supabaseUrl.text.trim();
+    final key = _supabaseAnonKey.text.trim();
+    if (url.isEmpty || key.isEmpty) return;
+    setState(() {
+      _verificandoSupabase = true;
+      _supabaseValido = null;
+      _supabaseError = null;
+    });
+    try {
+      final ok = await SupabaseService.verificarCredenciales(url, key);
+      setState(() {
+        _supabaseValido = ok;
+        _supabaseError = ok ? null : 'No se pudo conectar. Verifica URL y anon key.';
+      });
+    } catch (e) {
+      setState(() {
+        _supabaseValido = false;
+        _supabaseError = 'Error: ${e.toString().substring(0, e.toString().length.clamp(0, 120))}';
+      });
+    } finally {
+      setState(() => _verificandoSupabase = false);
+    }
+  }
+
   Future<void> _finalizar() async {
     if (!_formKey.currentState!.validate()) return;
+
+    // Validar que Supabase propio esté verificado
+    if (_supabaseValido != true) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Verifica la conexión a tu proyecto Supabase primero'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
     setState(() => _guardando = true);
 
     try {
@@ -343,7 +388,28 @@ class _PasoCrearConsultorioState
           ? 'MEDI-${DateTime.now().year}'
           : _codigoAcceso.text.trim().toUpperCase();
       await ConfiguracionService.setCodigoAcceso(codigo);
-      // Subir código a Supabase para que otros dispositivos puedan usarlo
+
+      // Guardar credenciales Supabase propias y conectar
+      final url = _supabaseUrl.text.trim();
+      final key = _supabaseAnonKey.text.trim();
+      await ConfiguracionService.setSupabaseCredenciales(url, key);
+      await SupabaseService.conectarSupabasePropio(url, key);
+
+      // Registrar en Supabase central para que otros puedan encontrar
+      // este consultorio con solo el código de acceso
+      try {
+        await SupabaseService.clienteCentral.from('consultorios').upsert({
+          'codigo_acceso': codigo,
+          'supabase_url': url,
+          'supabase_anon_key': key,
+          'nombre': _nombreConsultorio.text.trim(),
+          'registrado_en': DateTime.now().toIso8601String(),
+        });
+      } catch (_) {
+        // No bloquear si el central falla — el consultorio local ya está listo
+      }
+
+      // Subir código a Supabase PROPIO para que otros dispositivos puedan usarlo
       await ConfiguracionService.sincronizarConfiguracion();
 
       await ConfiguracionService.setOnboardingCompleto();
@@ -519,6 +585,129 @@ class _PasoCrearConsultorioState
                   : null,
             ),
             const SizedBox(height: 32),
+
+            // ── Sección Supabase ──────────────────────────────────────
+            _seccion(context, 'Proyecto Supabase del consultorio',
+                Icons.cloud_outlined),
+            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: Colors.blue.withValues(alpha: 0.06),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.blue.withValues(alpha: 0.2)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.info_outline,
+                          color: Colors.blue, size: 18),
+                      const SizedBox(width: 8),
+                      const Expanded(
+                        child: Text(
+                          'Crea un proyecto gratuito en supabase.com y pega aquí las credenciales. '
+                          'Tus datos clínicos quedarán en tu propio proyecto, separados de otros consultorios.',
+                          style: TextStyle(fontSize: 12, color: Colors.blue),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            TextFormField(
+              controller: _supabaseUrl,
+              decoration: const InputDecoration(
+                labelText: 'URL del proyecto *',
+                hintText: 'https://xxxxxxxxxxxx.supabase.co',
+                prefixIcon: Icon(Icons.link),
+                border: OutlineInputBorder(),
+              ),
+              validator: (v) =>
+                  (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+              onChanged: (_) => setState(() {
+                _supabaseValido = null;
+                _supabaseError = null;
+              }),
+            ),
+            const SizedBox(height: 12),
+            TextFormField(
+              controller: _supabaseAnonKey,
+              maxLines: 2,
+              decoration: const InputDecoration(
+                labelText: 'Anon key *',
+                hintText: 'eyJhbGci...',
+                prefixIcon: Icon(Icons.vpn_key_outlined),
+                border: OutlineInputBorder(),
+                helperText: 'La encuentras en Settings → API → Project API keys',
+              ),
+              validator: (v) =>
+                  (v == null || v.trim().isEmpty) ? 'Requerido' : null,
+              onChanged: (_) => setState(() {
+                _supabaseValido = null;
+                _supabaseError = null;
+              }),
+            ),
+            const SizedBox(height: 12),
+            // Botón verificar conexión
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: _verificandoSupabase ? null : _verificarSupabase,
+                icon: _verificandoSupabase
+                    ? const SizedBox(
+                        width: 16,
+                        height: 16,
+                        child: CircularProgressIndicator(strokeWidth: 2))
+                    : Icon(
+                        _supabaseValido == true
+                            ? Icons.check_circle
+                            : _supabaseValido == false
+                                ? Icons.error_outline
+                                : Icons.wifi_tethering,
+                        color: _supabaseValido == true
+                            ? Colors.green
+                            : _supabaseValido == false
+                                ? Colors.red
+                                : null,
+                      ),
+                label: Text(
+                  _verificandoSupabase
+                      ? 'Verificando...'
+                      : _supabaseValido == true
+                          ? 'Conexión exitosa ✓'
+                          : _supabaseValido == false
+                              ? 'Fallo en conexión'
+                              : 'Verificar conexión',
+                  style: TextStyle(
+                    color: _supabaseValido == true
+                        ? Colors.green
+                        : _supabaseValido == false
+                            ? Colors.red
+                            : null,
+                  ),
+                ),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color: _supabaseValido == true
+                        ? Colors.green
+                        : _supabaseValido == false
+                            ? Colors.red
+                            : Colors.grey.shade400,
+                  ),
+                ),
+              ),
+            ),
+            if (_supabaseError != null) ...[
+              const SizedBox(height: 6),
+              Text(_supabaseError!,
+                  style:
+                      const TextStyle(color: Colors.red, fontSize: 12)),
+            ],
+            const SizedBox(height: 32),
             FilledButton.icon(
               onPressed: _guardando ? null : _finalizar,
               icon: _guardando
@@ -614,118 +803,115 @@ class _PasoUnirseConsultorioState
       _errorCodigo = null;
     });
 
-    await Future.delayed(const Duration(milliseconds: 800));
-
     final codigoIngresado = _codigo.text.trim().toUpperCase();
 
-    // Obtener código remoto y local
-    final codigoRemoto =
-        await ConfiguracionService.getCodigoAccesoRemoto();
-    final codigoLocal =
-        await ConfiguracionService.getCodigoAcceso();
-    debugPrint('=== DEBUG CÓDIGO ===');
-    debugPrint('Ingresado: $codigoIngresado');
-    debugPrint('Remoto: $codigoRemoto');
-    debugPrint('Local: $codigoLocal');
-    debugPrint('====================');
-
-    final codigoValido = codigoRemoto ?? codigoLocal;
-    debugPrint('Código válido final: $codigoValido');
-    debugPrint('¿Coinciden?: ${codigoIngresado == codigoValido}');
-
-    if (codigoIngresado != codigoValido) {
-      debugPrint('FALLO EN COMPARACIÓN');
-      setState(() {
-        _errorCodigo =
-            'Código inválido. Solicita el código al administrador.';
-        _verificando = false;
-      });
-      return;
-    }
-    debugPrint('CÓDIGO VÁLIDO - continuando...');
-
-    // Descargar nombre del consultorio desde Supabase
     try {
-      final rows = await SupabaseService.client
-          .from('configuracion')
-          .select();
+      // 1. Buscar el consultorio en el Supabase CENTRAL por código de acceso
+      final rows = await SupabaseService.clienteCentral
+          .from('consultorios')
+          .select()
+          .eq('codigo_acceso', codigoIngresado)
+          .limit(1);
 
-      for (final row in rows) {
-        final clave = row['clave'] as String;
-        final valor = row['valor'] as String;
-        switch (clave) {
-          case 'nombre_consultorio':
-            await ConfiguracionService.setNombreConsultorio(valor);
-            break;
-          case 'telefono_consultorio':
-            await ConfiguracionService.setTelefonoConsultorio(valor);
-            break;
-          case 'direccion_consultorio':
-            await ConfiguracionService.setDireccionConsultorio(valor);
-            break;
-          case 'codigo_acceso':
-            await ConfiguracionService.setCodigoAcceso(valor);
-            break;
+      if (rows.isEmpty) {
+        // Fallback: verificar código en Supabase central tabla configuracion (legacy)
+        final codigoRemoto = await ConfiguracionService.getCodigoAccesoRemoto();
+        final codigoLocal = await ConfiguracionService.getCodigoAcceso();
+        final codigoValido = codigoRemoto ?? codigoLocal;
+        if (codigoIngresado != codigoValido) {
+          setState(() {
+            _errorCodigo = 'Código inválido. Solicita el código al administrador.';
+            _verificando = false;
+          });
+          return;
+        }
+        // Consultorio legacy sin Supabase propio — continuar con central
+      } else {
+        // 2. Obtener URL y key del proyecto propio del consultorio
+        final consultorio = rows.first;
+        final supabaseUrl = consultorio['supabase_url'] as String?;
+        final supabaseKey = consultorio['supabase_anon_key'] as String?;
+
+        if (supabaseUrl != null && supabaseUrl.isNotEmpty &&
+            supabaseKey != null && supabaseKey.isNotEmpty) {
+          // 3. Conectar al Supabase propio
+          await SupabaseService.conectarSupabasePropio(supabaseUrl, supabaseKey);
+          await ConfiguracionService.setSupabaseCredenciales(supabaseUrl, supabaseKey);
         }
       }
-      // Descargar logo desde Supabase Storage
-      await ConfiguracionService.descargarLogoDeSupabase();
-    } catch (_) {}
 
-    try {
-      final db = await DatabaseHelper.instance.database;
+      // 4. Descargar configuración del consultorio (ahora del Supabase propio)
+      try {
+        final configRows = await SupabaseService.client
+            .from('configuracion')
+            .select();
 
-      // Descargar usuarios desde Supabase
-      final usuarios = await SupabaseService.client
-          .from('usuarios')
-          .select();
-      for (final u in usuarios) {
-        final existente = await db.query(
-          'usuarios',
-          where: 'email = ?',
-          whereArgs: [u['email']],
-        );
+        for (final row in configRows) {
+          final clave = row['clave'] as String;
+          final valor = row['valor'] as String;
+          switch (clave) {
+            case 'nombre_consultorio':
+              await ConfiguracionService.setNombreConsultorio(valor);
+              break;
+            case 'telefono_consultorio':
+              await ConfiguracionService.setTelefonoConsultorio(valor);
+              break;
+            case 'direccion_consultorio':
+              await ConfiguracionService.setDireccionConsultorio(valor);
+              break;
+            case 'codigo_acceso':
+              await ConfiguracionService.setCodigoAcceso(valor);
+              break;
+          }
+        }
+        await ConfiguracionService.descargarLogoDeSupabase();
+      } catch (_) {}
 
-        if (existente.isEmpty) {
-          await db.insert('usuarios', {
-            'id': u['id'],
-            'nombre': u['nombre'],
-            'email': u['email'],
-            'password_hash': u['password_hash'],
-            'rol': u['rol'],
-            'activo': u['activo'] == true ? 1 : 0,
-            'created_at': u['created_at'] ??
-                DateTime.now().toIso8601String(),
-            'updated_at': u['updated_at'] ??
-                DateTime.now().toIso8601String(),
-          });
-        } else {
-          await db.update(
+      // 5. Descargar usuarios del consultorio
+      try {
+        final db = await DatabaseHelper.instance.database;
+        final usuarios = await SupabaseService.client.from('usuarios').select();
+        for (final u in usuarios) {
+          final existente = await db.query(
             'usuarios',
-            {
-              'nombre': u['nombre'],
-              'password_hash': u['password_hash'],
-              'rol': u['rol'],
-              'activo': u['activo'] == true ? 1 : 0,
-              'updated_at': u['updated_at'] ??
-                  DateTime.now().toIso8601String(),
-            },
             where: 'email = ?',
             whereArgs: [u['email']],
           );
+          if (existente.isEmpty) {
+            await db.insert('usuarios', {
+              'id': u['id'],
+              'nombre': u['nombre'],
+              'email': u['email'],
+              'password_hash': u['password_hash'],
+              'rol': u['rol'],
+              'activo': u['activo'] == true ? 1 : 0,
+              'created_at': u['created_at'] ?? DateTime.now().toIso8601String(),
+              'updated_at': u['updated_at'] ?? DateTime.now().toIso8601String(),
+            });
+          } else {
+            await db.update(
+              'usuarios',
+              {
+                'nombre': u['nombre'],
+                'password_hash': u['password_hash'],
+                'rol': u['rol'],
+                'activo': u['activo'] == true ? 1 : 0,
+                'updated_at': u['updated_at'] ?? DateTime.now().toIso8601String(),
+              },
+              where: 'email = ?',
+              whereArgs: [u['email']],
+            );
+          }
         }
-      }
+      } catch (_) {}
 
-      await ConfiguracionService.setCodigoConsultorio(
-          codigoIngresado);
-      await ConfiguracionService.setCodigoAcceso(
-          codigoIngresado);
+      await ConfiguracionService.setCodigoConsultorio(codigoIngresado);
+      await ConfiguracionService.setCodigoAcceso(codigoIngresado);
       await ConfiguracionService.setOnboardingCompleto();
 
       if (mounted) {
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-              builder: (_) => const _OnboardingCompleto()),
+          MaterialPageRoute(builder: (_) => const _OnboardingCompleto()),
           (route) => false,
         );
       }
@@ -922,4 +1108,3 @@ class _AppRoot extends ConsumerWidget {
     );
   }
 }
-

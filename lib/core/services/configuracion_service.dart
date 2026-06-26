@@ -11,6 +11,55 @@ class ConfiguracionService {
   static const _keyOnboardingCompleto = 'onboarding_completo';
   static const _keyCodigoConsultorio  = 'codigo_consultorio';
   static const _keyDireccion          = 'config_direccion_consultorio';
+  static const _keySupabaseUrl        = 'config_supabase_url';
+  static const _keySupabaseAnonKey    = 'config_supabase_anon_key';
+
+  // ── Credenciales Supabase del consultorio ────────────────────────────────
+
+  static Future<String?> getSupabaseUrl() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keySupabaseUrl);
+  }
+
+  static Future<String?> getSupabaseAnonKey() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keySupabaseAnonKey);
+  }
+
+  static Future<void> setSupabaseCredenciales(String url, String anonKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keySupabaseUrl, url.trim());
+    await prefs.setString(_keySupabaseAnonKey, anonKey.trim());
+  }
+
+  static Future<bool> tieneSupabasePropio() async {
+    final url = await getSupabaseUrl();
+    return url != null && url.isNotEmpty;
+  }
+
+  // ── Terapeutas simultáneos ───────────────────────────────────────────────
+  static const _keyTerapeutasSimultaneos = 'config_terapeutas_simultaneos';
+  static const _keyDuracionCita = 'config_duracion_cita';
+
+  static Future<int> getTerapeutasSimultaneos() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_keyTerapeutasSimultaneos) ?? 1;
+  }
+
+  static Future<void> setTerapeutasSimultaneos(int valor) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_keyTerapeutasSimultaneos, valor);
+  }
+
+  static Future<int> getDuracionCita() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_keyDuracionCita) ?? 60;
+  }
+
+  static Future<void> setDuracionCita(int minutos) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_keyDuracionCita, minutos);
+  }
 
   // ── Nombre ──────────────────────────────────────────────────────────────
   static Future<String> getNombreConsultorio() async {
@@ -235,4 +284,3 @@ class ConfiguracionService {
     await prefs.setInt(_keyColorFondo, color);
   }
 }
-

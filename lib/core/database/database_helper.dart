@@ -27,7 +27,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 10,
+      version: 11,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -202,6 +202,23 @@ class DatabaseHelper {
         url TEXT,
         storage_path TEXT,
         descripcion TEXT,
+        created_at TEXT NOT NULL,
+        FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS bitacora_sesiones (
+        id TEXT PRIMARY KEY,
+        paciente_id TEXT NOT NULL,
+        fecha TEXT NOT NULL,
+        numero_sesion INTEGER NOT NULL DEFAULT 1,
+        sesiones_prescritas INTEGER,
+        terapeuta TEXT NOT NULL,
+        dolor_eva INTEGER,
+        tratamiento_realizado TEXT,
+        respuesta_tratamiento TEXT,
+        ejercicios_realizados TEXT,
+        observaciones TEXT,
         created_at TEXT NOT NULL,
         FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
       )
@@ -468,6 +485,26 @@ class DatabaseHelper {
         await db.execute(
             'ALTER TABLE citas ADD COLUMN telefono_temporal TEXT');
       }
+    }
+
+    if (oldVersion < 11) {
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS bitacora_sesiones (
+          id TEXT PRIMARY KEY,
+          paciente_id TEXT NOT NULL,
+          fecha TEXT NOT NULL,
+          numero_sesion INTEGER NOT NULL DEFAULT 1,
+          sesiones_prescritas INTEGER,
+          terapeuta TEXT NOT NULL,
+          dolor_eva INTEGER,
+          tratamiento_realizado TEXT,
+          respuesta_tratamiento TEXT,
+          ejercicios_realizados TEXT,
+          observaciones TEXT,
+          created_at TEXT NOT NULL,
+          FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+        )
+      ''');
     }
 
   }
