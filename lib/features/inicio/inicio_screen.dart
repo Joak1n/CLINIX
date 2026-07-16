@@ -62,7 +62,13 @@ class InicioScreen extends ConsumerWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const AgendaScreen(),
+                        ),
+                      );
+                    },
                     child: const Text('Ver agenda'),
                   ),
                 ],
