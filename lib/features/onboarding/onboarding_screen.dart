@@ -79,7 +79,12 @@ class _PasoBienvenida extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Spacer(),
-          const LogoConsultorio(size: 80),
+          Image.asset(
+            'assets/icon/clinix_logo.png',
+            width: 80,
+            height: 80,
+            fit: BoxFit.contain,
+          ),
           const SizedBox(height: 24),
           Text(
             'Bienvenido a\nCLINIX',

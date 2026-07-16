@@ -10,6 +10,7 @@ import '../auth/auth_provider.dart';
 import '../../shared/widgets/whatsapp_buttons.dart';
 import '../../core/services/horario_service.dart';
 import '../../core/services/configuracion_service.dart';
+import '../../core/services/whatsapp_service.dart';
 
 class NuevaCitaScreen extends ConsumerStatefulWidget {
   const NuevaCitaScreen({super.key});
@@ -315,13 +316,16 @@ class _NuevaCitaScreenState extends ConsumerState<NuevaCitaScreen> {
                   '*Hora:* ${cita.hora}\n'
                   '*Servicio:* ${cita.especialidad.nombre}\n\n'
                   'Te esperamos!';
-              final uri = Uri.parse(
-                  'https://wa.me/${cita.telefonoTemporal}?text=${Uri.encodeComponent(mensaje)}');
-              // ignore: deprecated_member_use
-              // Usar url_launcher si está disponible
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Abriendo WhatsApp para ${cita.nombreTemporal}')),
+              final enviado = await WhatsAppService.enviarMensaje(
+                telefono: cita.telefonoTemporal!,
+                mensaje: mensaje,
               );
+              if (!enviado && context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text('No se pudo abrir WhatsApp')),
+                );
+              }
             },
           ),
         ],

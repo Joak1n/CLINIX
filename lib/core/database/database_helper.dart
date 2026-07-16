@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite/sqflite.dart' show ConflictAlgorithm;
 import 'package:path/path.dart';
 
 class DatabaseHelper {
@@ -27,7 +28,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 11,
+      version: 13,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -47,13 +48,13 @@ class DatabaseHelper {
         email TEXT,
         alergias TEXT,
         created_at TEXT NOT NULL,
-        updated_at TEXT NOT NULL
+        updated_at TEXT NOT NULL,
         es_menor INTEGER DEFAULT 0,
         responsable_nombre TEXT,
         responsable_parentesco TEXT,
         responsable_telefono TEXT,
         responsable_curp TEXT,
-        consentimiento_tutor INTEGER DEFAULT 0,
+        consentimiento_tutor INTEGER DEFAULT 0
       )
       
     ''');
@@ -221,6 +222,26 @@ class DatabaseHelper {
         observaciones TEXT,
         created_at TEXT NOT NULL,
         FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS horarios_atencion (
+        dia_semana INTEGER PRIMARY KEY,
+        activo INTEGER NOT NULL DEFAULT 1,
+        hora_inicio TEXT NOT NULL DEFAULT '09:00',
+        hora_fin TEXT NOT NULL DEFAULT '18:00'
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS bloqueos_horario (
+        id TEXT PRIMARY KEY,
+        fecha_inicio TEXT NOT NULL,
+        fecha_fin TEXT NOT NULL,
+        hora_inicio TEXT,
+        hora_fin TEXT,
+        es_dia_completo INTEGER NOT NULL DEFAULT 0,
+        motivo TEXT,
+        created_at TEXT NOT NULL
       )
     ''');
     await db.execute('''
@@ -505,6 +526,76 @@ class DatabaseHelper {
           FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
         )
       ''');
+    }
+
+    if (oldVersion < 12) {
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS horarios_atencion (
+          dia_semana INTEGER PRIMARY KEY,
+          activo INTEGER NOT NULL DEFAULT 1,
+          hora_inicio TEXT NOT NULL DEFAULT '09:00',
+          hora_fin TEXT NOT NULL DEFAULT '18:00'
+        )
+      ''');
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS bloqueos_horario (
+          id TEXT PRIMARY KEY,
+          fecha_inicio TEXT NOT NULL,
+          fecha_fin TEXT NOT NULL,
+          hora_inicio TEXT,
+          hora_fin TEXT,
+          es_dia_completo INTEGER NOT NULL DEFAULT 0,
+          motivo TEXT,
+          created_at TEXT NOT NULL
+        )
+      ''');
+      // Insertar horarios por defecto: lun-vie 9-18, sáb 9-14, dom cerrado
+      for (int dia = 1; dia <= 7; dia++) {
+        final activo = dia <= 6 ? 1 : 0;
+        final fin = dia == 6 ? '14:00' : '18:00';
+        await db.insert('horarios_atencion', {
+          'dia_semana': dia,
+          'activo': activo,
+          'hora_inicio': '09:00',
+          'hora_fin': fin,
+        }, conflictAlgorithm: ConflictAlgorithm.ignore);
+      }
+    }
+
+    if (oldVersion < 13) {
+      // SQLite no permite ALTER COLUMN, hay que recrear la tabla
+      // para quitar el NOT NULL de paciente_id y agregar columnas temporales
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS citas_nueva (
+          id TEXT PRIMARY KEY,
+          paciente_id TEXT,
+          nombre_temporal TEXT,
+          telefono_temporal TEXT,
+          especialidad TEXT NOT NULL,
+          fecha TEXT NOT NULL,
+          hora TEXT NOT NULL,
+          duracion_minutos INTEGER NOT NULL DEFAULT 60,
+          terapeuta TEXT NOT NULL,
+          estado TEXT NOT NULL DEFAULT 'confirmada',
+          notas TEXT,
+          created_at TEXT NOT NULL,
+          FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+        )
+      ''');
+      // Copiar datos existentes
+      await db.execute('''
+        INSERT INTO citas_nueva 
+          (id, paciente_id, nombre_temporal, telefono_temporal,
+           especialidad, fecha, hora, duracion_minutos,
+           terapeuta, estado, notas, created_at)
+        SELECT 
+          id, paciente_id, nombre_temporal, telefono_temporal,
+          especialidad, fecha, hora, duracion_minutos,
+          terapeuta, estado, notas, created_at
+        FROM citas
+      ''');
+      await db.execute('DROP TABLE citas');
+      await db.execute('ALTER TABLE citas_nueva RENAME TO citas');
     }
 
   }

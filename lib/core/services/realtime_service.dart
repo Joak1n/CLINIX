@@ -166,6 +166,8 @@ class RealtimeService {
       {
         'id': r['id'],
         'paciente_id': r['paciente_id'],
+        'nombre_temporal': r['nombre_temporal'],
+        'telefono_temporal': r['telefono_temporal'],
         'especialidad': r['especialidad'],
         'fecha': r['fecha'],
         'hora': r['hora'],
@@ -371,4 +373,3 @@ class RealtimeService {
     _canales.clear();
   }
 }
-

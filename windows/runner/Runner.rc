@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.mediconfort" "\0"
-            VALUE "FileDescription", "mediconfort_medical_record_app" "\0"
+            VALUE "CompanyName", "Clinix" "\0"
+            VALUE "FileDescription", "Clinix" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "mediconfort_medical_record_app" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 com.mediconfort. All rights reserved." "\0"
-            VALUE "OriginalFilename", "mediconfort_medical_record_app.exe" "\0"
-            VALUE "ProductName", "mediconfort_medical_record_app" "\0"
+            VALUE "InternalName", "Clinix" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 Clinix. All rights reserved." "\0"
+            VALUE "OriginalFilename", "Clinix.exe" "\0"
+            VALUE "ProductName", "Clinix" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

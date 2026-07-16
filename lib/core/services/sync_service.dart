@@ -111,6 +111,8 @@ class SyncService {
       await _client.from('citas').upsert({
         'id': m['id'],
         'paciente_id': m['paciente_id'],
+        'nombre_temporal': m['nombre_temporal'],
+        'telefono_temporal': m['telefono_temporal'],
         'especialidad': m['especialidad'],
         'fecha': m['fecha'],
         'hora': m['hora'],
@@ -300,6 +302,8 @@ class SyncService {
         {
           'id': r['id'],
           'paciente_id': r['paciente_id'],
+          'nombre_temporal': r['nombre_temporal'],
+          'telefono_temporal': r['telefono_temporal'],
           'especialidad': r['especialidad'],
           'fecha': r['fecha'],
           'hora': r['hora'],
@@ -394,4 +398,3 @@ class SyncService {
     }
   }
 }
-

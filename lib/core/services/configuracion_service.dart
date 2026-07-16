@@ -160,6 +160,18 @@ class ConfiguracionService {
     await prefs.setBool(_keyOnboardingCompleto, true);
   }
 
+  /// Resetea el onboarding para cambiar de consultorio.
+  /// Borra credenciales Supabase y flag de onboarding, pero conserva datos locales.
+  static Future<void> resetOnboarding() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_keyOnboardingCompleto);
+    await prefs.remove(_keySupabaseUrl);
+    await prefs.remove(_keySupabaseAnonKey);
+    await prefs.remove(_keyCodigoConsultorio);
+    await prefs.remove(_keyCodigoAcceso);
+    SupabaseService.desconectarSupabasePropio();
+  }
+
   static Future<String?> getCodigoConsultorio() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyCodigoConsultorio);

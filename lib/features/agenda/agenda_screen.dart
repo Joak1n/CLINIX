@@ -278,124 +278,134 @@ class _TarjetaCita extends StatelessWidget {
     Widget build(BuildContext context) {
       return Card(
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Hora
-              Column(
-                children: [
-                  Text(cita.hora,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w600)),
-                  Text('${cita.duracionMinutos} min',
-                      style: const TextStyle(fontSize: 11, color: Colors.grey)),
-                ],
+              // ── Hora ──────────────────────────────────────────
+              SizedBox(
+                width: 52,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(cita.hora,
+                        style: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w700)),
+                    Text('${cita.duracionMinutos}m',
+                        style: const TextStyle(
+                            fontSize: 10, color: Colors.grey)),
+                  ],
+                ),
               ),
-              const SizedBox(width: 14),
-              // Barra de color por estado
+              // ── Barra de color ─────────────────────────────────
               Container(
                 width: 3,
-                height: 48,
+                height: 44,
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   color: _colorEstado(cita.estado),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              const SizedBox(width: 14),
-              // Información de la cita
+              // ── Info (expandido) ───────────────────────────────
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(cita.nombrePaciente ?? 'Paciente',
-                        style: const TextStyle(fontWeight: FontWeight.w500)),
-                    Text(cita.especialidad.nombre,
-                        style: const TextStyle(
-                            fontSize: 13, color: Colors.grey)),
-                    Text('Terapeuta: ${cita.terapeuta}',
-                        style: const TextStyle(
-                            fontSize: 12, color: Colors.grey)),
-                  ],
-                ),
-              ),
-              // Botón editar
-              IconButton(
-                icon: const Icon(Icons.edit_outlined, size: 20),
-                tooltip: 'Editar cita',
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => EditarCitaScreen(cita: cita),
-                  ),
-                ).then((actualizado) {
-                  if (actualizado == true) onCambiarEstado(cita.estado);
-                }),
-              ),
-              // Menú de estado
-              PopupMenuButton<EstadoCita>(
-                icon: Chip(
-                  label: Text(cita.estado.etiqueta,
-                      style: const TextStyle(fontSize: 11)),
-                  backgroundColor:
-                      _colorEstado(cita.estado).withValues(alpha: 0.1),
-                  side: BorderSide(
-                      color: _colorEstado(cita.estado).withValues(alpha: 0.4)),
-                  padding: EdgeInsets.zero,
-                  visualDensity: VisualDensity.compact,
-                ),
-                
-                onSelected: (nuevoEstado) async {
-                  onCambiarEstado(nuevoEstado);
-
-                  // Si se cancela, ofrecer notificar al paciente
-                  if (nuevoEstado == EstadoCita.cancelada &&
-                      context.mounted) {
-                    _ofrecerNotificarCancelacion(context);
-                  }
-                },
-                
-                itemBuilder: (_) => EstadoCita.values
-                    .map((e) => PopupMenuItem(
-                          value: e,
-                          child: Text(e.etiqueta),
-                        ))
-                    .toList(),
-              ),
-              IconButton(
-                icon: const Icon(Icons.delete_outline,
-                    size: 20, color: Colors.red),
-                tooltip: 'Eliminar cita',
-                onPressed: () async {
-                  final confirmar = await showDialog<bool>(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: const Text('Eliminar cita'),
-                      content: Text(
-                        '¿Eliminar la cita de ${cita.nombrePaciente ?? 'este paciente'} '
-                        'del ${cita.fecha} a las ${cita.hora}?',
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, false),
-                          child: const Text('Cancelar'),
+                    // Fila 1: nombre + chip estado
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            cita.nombreMostrado,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 14),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
                         ),
-                        FilledButton(
-                          style: FilledButton.styleFrom(
-                              backgroundColor: Colors.red),
-                          onPressed: () => Navigator.pop(context, true),
-                          child: const Text('Eliminar'),
+                        const SizedBox(width: 6),
+                        _ChipEstado(
+                          estado: cita.estado,
+                          color: _colorEstado(cita.estado),
+                          onChanged: (nuevoEstado) async {
+                            onCambiarEstado(nuevoEstado);
+                            if (nuevoEstado == EstadoCita.cancelada &&
+                                context.mounted) {
+                              _ofrecerNotificarCancelacion(context);
+                            }
+                          },
                         ),
                       ],
                     ),
-                  );
-                  if (confirmar == true) onEliminar();
-                },
+                    const SizedBox(height: 2),
+                    // Fila 2: especialidad · terapeuta
+                    Text(
+                      '${cita.especialidad.nombre} · ${cita.terapeuta}',
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                    // Fila 3: botones
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit_outlined, size: 18),
+                          tooltip: 'Editar cita',
+                          visualDensity: VisualDensity.compact,
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => EditarCitaScreen(cita: cita),
+                            ),
+                          ).then((actualizado) {
+                            if (actualizado == true) onCambiarEstado(cita.estado);
+                          }),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete_outline,
+                              size: 18, color: Colors.red),
+                          tooltip: 'Eliminar cita',
+                          visualDensity: VisualDensity.compact,
+                          onPressed: () async {
+                            final confirmar = await showDialog<bool>(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: const Text('Eliminar cita'),
+                                content: Text(
+                                  '¿Eliminar la cita de ${cita.nombreMostrado} '
+                                  'del ${cita.fecha} a las ${cita.hora}?',
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context, false),
+                                    child: const Text('Cancelar'),
+                                  ),
+                                  FilledButton(
+                                    style: FilledButton.styleFrom(
+                                        backgroundColor: Colors.red),
+                                    onPressed: () => Navigator.pop(context, true),
+                                    child: const Text('Eliminar'),
+                                  ),
+                                ],
+                              ),
+                            );
+                            if (confirmar == true) onEliminar();
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       );
     }
+
   Future<void> _ofrecerNotificarCancelacion(BuildContext context) async {
     if (cita.pacienteId == null) return; // paciente temporal, sin expediente
     final db = await DatabaseHelper.instance.database;
@@ -584,4 +594,44 @@ Future<void> _mostrarRecordatorios(
       ),
     ),
   );
+}
+// ── Chip de estado con popup ─────────────────────────────────────────────────
+
+class _ChipEstado extends StatelessWidget {
+  final EstadoCita estado;
+  final Color color;
+  final ValueChanged<EstadoCita> onChanged;
+
+  const _ChipEstado({
+    required this.estado,
+    required this.color,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton<EstadoCita>(
+      tooltip: 'Cambiar estado',
+      onSelected: onChanged,
+      itemBuilder: (_) => EstadoCita.values
+          .map((e) => PopupMenuItem(
+                value: e,
+                child: Text(e.etiqueta),
+              ))
+          .toList(),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: color.withValues(alpha: 0.4)),
+        ),
+        child: Text(
+          estado.etiqueta,
+          style: TextStyle(
+              fontSize: 11, color: color, fontWeight: FontWeight.w500),
+        ),
+      ),
+    );
+  }
 }

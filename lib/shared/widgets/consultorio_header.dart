@@ -25,15 +25,13 @@ class ConsultorioHeader extends ConsumerWidget {
       loading: () => const SizedBox.shrink(),
       error: (_, _) => const SizedBox.shrink(),
       data: (consultorio) {
-        final tienelogo = consultorio.logoPath != null;
-        final colorTexto = color ??
-            Theme.of(context).colorScheme.primary;
+        final colorTexto = color ?? Theme.of(context).colorScheme.primary;
 
         return Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Logo o ícono por defecto
-            if (tienelogo)
+            // Logo del consultorio o logo de Clinix como fallback
+            if (consultorio.logoPath != null)
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.file(
@@ -41,14 +39,11 @@ class ConsultorioHeader extends ConsumerWidget {
                   width: logoSize,
                   height: logoSize,
                   fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => _logoClinic(logoSize),
                 ),
               )
             else
-              Icon(
-                Icons.local_hospital_rounded,
-                size: logoSize,
-                color: colorTexto,
-              ),
+              _logoClinic(logoSize),
 
             if (mostrarNombre) ...[
               const SizedBox(width: 10),
@@ -69,9 +64,16 @@ class ConsultorioHeader extends ConsumerWidget {
       },
     );
   }
+
+  Widget _logoClinic(double size) => Image.asset(
+        'assets/icon/icon.png',
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+      );
 }
 
-/// Solo el logo (para AppBar)
+/// Solo el logo (para AppBar y onboarding)
 class LogoConsultorio extends ConsumerWidget {
   final double size;
 
@@ -82,14 +84,10 @@ class LogoConsultorio extends ConsumerWidget {
     final consultorioAsync = ref.watch(consultorioProvider);
 
     return consultorioAsync.when(
-      loading: () => const SizedBox.shrink(),
-      error: (_, _) => const SizedBox.shrink(),
+      loading: () => _logoClinic(),
+      error: (_, __) => _logoClinic(),
       data: (consultorio) {
-        if (consultorio.logoPath == null) {
-          return Icon(Icons.local_hospital_rounded,
-              size: size,
-              color: Theme.of(context).colorScheme.primary);
-        }
+        if (consultorio.logoPath == null) return _logoClinic();
         return ClipRRect(
           borderRadius: BorderRadius.circular(6),
           child: Image.file(
@@ -97,10 +95,17 @@ class LogoConsultorio extends ConsumerWidget {
             width: size,
             height: size,
             fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => _logoClinic(),
           ),
         );
       },
     );
   }
-}
 
+  Widget _logoClinic() => Image.asset(
+        'assets/icon/icon.png',
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+      );
+}

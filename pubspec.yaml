@@ -110,7 +110,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/icon/
+    - assets/icon/clinix_logo.png
     - assets/data/exercises.json
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -145,12 +145,12 @@ flutter:
 flutter_launcher_icons:
   windows:
     generate: true
-    image_path: "assets/icon/icon.png"
+    image_path: "assets/icon/clinix_logo.png"
     icon_size: 48
 
   android: true
   ios: false
-  image_path: "assets/icon/icon.png"
+  image_path: "assets/icon/clinix_logo.png"
   min_sdk_android: 21
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/icon/icon.png"
+  adaptive_icon_foreground: "assets/icon/clinix_logo.png"

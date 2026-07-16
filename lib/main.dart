@@ -14,6 +14,7 @@ import 'features/auth/usuarios_screen.dart';
 import 'features/pacientes/pacientes_screen.dart';
 import 'features/agenda/agenda_screen.dart';
 import 'features/onboarding/onboarding_screen.dart';
+import 'features/inicio/inicio_screen.dart';
 import 'shared/widgets/consultorio_header.dart';
 import 'core/services/supabase_service.dart';
 import 'core/services/sync_service.dart';
@@ -141,6 +142,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
 
     // Pantallas según rol
     final screens = [
+      InicioScreen(usuario: widget.usuario),
       if (rol.puedeVerExpedientes) const PacientesScreen(),
       if (rol.puedeVerAgenda) const AgendaScreen(),
       if (rol.puedeVerExpedientes)
@@ -149,27 +151,29 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     ];
 
     final destinations = [
+      const NavigationDestination(
+        icon: Icon(Icons.home_outlined),
+        selectedIcon: Icon(Icons.home),
+        label: 'Inicio',
+      ),
       if (rol.puedeVerExpedientes)
         const NavigationDestination(
           icon: Icon(Icons.people_outline),
           selectedIcon: Icon(Icons.people),
           label: 'Pacientes',
         ),
-        // El dashboard es visible para todos los roles, pero solo se muestra en el menú si el rol tiene permisos de gestión de usuarios
       if (rol.puedeVerAgenda)
         const NavigationDestination(
           icon: Icon(Icons.calendar_month_outlined),
           selectedIcon: Icon(Icons.calendar_month),
           label: 'Agenda',
         ),
-        // El dashboard es visible para todos los roles, pero solo se muestra en el menú si el rol tiene permisos de gestión de usuarios
       if (rol.puedeVerExpedientes)
         const NavigationDestination(
           icon: Icon(Icons.bar_chart_outlined),
           selectedIcon: Icon(Icons.bar_chart),
           label: 'Dashboard',
         ),
-        // El dashboard es visible para todos los roles, pero solo se muestra en el menú si el rol tiene permisos de gestión de usuarios
       if (rol.puedeGestionarUsuarios)
         const NavigationDestination(
           icon: Icon(Icons.manage_accounts_outlined),
@@ -340,4 +344,3 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     );
   }
 }
-

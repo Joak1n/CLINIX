@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'auth_provider.dart';
 import '../../shared/widgets/consultorio_header.dart';
+import '../../core/services/configuracion_service.dart';
+import '../onboarding/onboarding_screen.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -130,6 +132,44 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           )
                         : const Text('Iniciar sesión'),
                   ),
+
+                  const SizedBox(height: 16),
+                  TextButton.icon(
+                    icon: const Icon(Icons.swap_horiz, size: 18),
+                    label: const Text('Cambiar consultorio'),
+                    onPressed: () async {
+                      final confirmar = await showDialog<bool>(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                          title: const Text('¿Cambiar consultorio?'),
+                          content: const Text(
+                            'Se cerrará la sesión actual y podrás crear o unirte a otro consultorio. '
+                            'Los datos locales permanecerán guardados.',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              child: const Text('Cancelar'),
+                            ),
+                            FilledButton(
+                              onPressed: () => Navigator.pop(context, true),
+                              child: const Text('Continuar'),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (confirmar == true && context.mounted) {
+                        await ConfiguracionService.resetOnboarding();
+                        if (context.mounted) {
+                          Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (_) => const OnboardingScreen()),
+                            (route) => false,
+                          );
+                        }
+                      }
+                    },
+                  ),
                   
                 ],
               ),
@@ -140,4 +180,3 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 }
-
