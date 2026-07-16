@@ -316,6 +316,49 @@ class _HomeShellState extends ConsumerState<HomeShell> {
               },
             ),
             const Divider(),
+            ListTile(
+              leading: const Icon(Icons.dns_outlined),
+              title: const Text('Proyecto conectado'),
+              subtitle: const Text('Ver a qué Supabase está conectado este dispositivo'),
+              onTap: () async {
+                Navigator.pop(context);
+                final url = await ConfiguracionService.getSupabaseUrl();
+                final tienePropio = await ConfiguracionService.tieneSupabasePropio();
+                if (!context.mounted) return;
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: const Text('Proyecto de Supabase conectado'),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          tienePropio
+                              ? 'Este dispositivo usa el Supabase PROPIO del consultorio:'
+                              : 'Este dispositivo usa el Supabase CENTRAL (aún no tiene uno propio configurado):',
+                        ),
+                        const SizedBox(height: 12),
+                        SelectableText(
+                          (url == null || url.isEmpty) ? '(sin URL propia guardada)' : url,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'monospace',
+                          ),
+                        ),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Cerrar'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+            const Divider(),
             if (widget.usuario.rol.puedeGestionarUsuarios)
               ListTile(
                 leading: const Icon(Icons.settings_outlined),
