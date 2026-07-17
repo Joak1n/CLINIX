@@ -2,6 +2,10 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dashboard_provider.dart';
+import '../../core/models/cita.dart' show EstadoCita;
+import '../inicio/lista_citas_mes_screen.dart';
+import '../inicio/lista_pacientes_nuevos_screen.dart';
+import '../pacientes/pacientes_screen.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -43,14 +47,31 @@ class DashboardScreen extends ConsumerWidget {
             const Center(child: CircularProgressIndicator()),
         error: (e, _) =>
             Center(child: Text('Error: $e')),
-        data: (data) => _buildDashboard(context, data),
+        data: (data) => _buildDashboard(context, data, periodo),
       ),
     );
   }
 
   Widget _buildDashboard(
-      BuildContext context, Map<String, dynamic> data) {
+      BuildContext context, Map<String, dynamic> data, PeriodoDashboard periodo) {
     final colorScheme = Theme.of(context).colorScheme;
+    final ahora = DateTime.now();
+    DateTime inicio;
+    String etiquetaPeriodo;
+    switch (periodo) {
+      case PeriodoDashboard.semana:
+        inicio = ahora.subtract(const Duration(days: 7));
+        etiquetaPeriodo = 'últimos 7 días';
+        break;
+      case PeriodoDashboard.mes:
+        inicio = DateTime(ahora.year, ahora.month, 1);
+        etiquetaPeriodo = 'este mes';
+        break;
+      case PeriodoDashboard.trimestre:
+        inicio = DateTime(ahora.year, ahora.month - 2, 1);
+        etiquetaPeriodo = 'últimos 3 meses';
+        break;
+    }
 
     return RefreshIndicator(
       onRefresh: () async {},
@@ -72,24 +93,60 @@ class DashboardScreen extends ConsumerWidget {
                 valor: '${data['totalPacientes']}',
                 icono: Icons.people,
                 color: Colors.teal,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const PacientesScreen()),
+                ),
               ),
               _StatCard(
                 titulo: 'Pacientes nuevos',
                 valor: '${data['pacientesNuevos']}',
                 icono: Icons.person_add,
                 color: Colors.indigo,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ListaPacientesNuevosScreen(
+                      desde: inicio,
+                      hasta: ahora,
+                      titulo: 'Pacientes nuevos ($etiquetaPeriodo)',
+                    ),
+                  ),
+                ),
               ),
               _StatCard(
                 titulo: 'Total citas',
                 valor: '${data['totalCitas']}',
                 icono: Icons.calendar_month,
                 color: Colors.orange,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ListaCitasMesScreen(
+                      desde: inicio,
+                      hasta: ahora,
+                      titulo: 'Citas ($etiquetaPeriodo)',
+                    ),
+                  ),
+                ),
               ),
               _StatCard(
                 titulo: 'Tasa asistencia',
                 valor: '${data['tasaAsistencia']}%',
                 icono: Icons.check_circle,
                 color: Colors.green,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ListaCitasMesScreen(
+                      desde: inicio,
+                      hasta: ahora,
+                      estado: EstadoCita.completada,
+                      titulo: 'Citas completadas ($etiquetaPeriodo)',
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -105,6 +162,39 @@ class DashboardScreen extends ConsumerWidget {
             canceladas: data['citasCanceladas'],
             noShow: data['citasNoShow'],
             total: data['totalCitas'],
+            onTapCompletadas: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ListaCitasMesScreen(
+                  desde: inicio,
+                  hasta: ahora,
+                  estado: EstadoCita.completada,
+                  titulo: 'Citas completadas ($etiquetaPeriodo)',
+                ),
+              ),
+            ),
+            onTapCanceladas: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ListaCitasMesScreen(
+                  desde: inicio,
+                  hasta: ahora,
+                  estado: EstadoCita.cancelada,
+                  titulo: 'Citas canceladas ($etiquetaPeriodo)',
+                ),
+              ),
+            ),
+            onTapNoShow: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ListaCitasMesScreen(
+                  desde: inicio,
+                  hasta: ahora,
+                  estado: EstadoCita.noShow,
+                  titulo: 'Citas con no show ($etiquetaPeriodo)',
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: 20),
 
@@ -210,6 +300,7 @@ class _StatCard extends StatelessWidget {
   final IconData icono;
   final Color color;
   final bool ancho;
+  final VoidCallback? onTap;
 
   const _StatCard({
     required this.titulo,
@@ -217,11 +308,15 @@ class _StatCard extends StatelessWidget {
     required this.icono,
     required this.color,
     this.ancho = false,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: color.withOpacity(0.08),
@@ -263,6 +358,7 @@ class _StatCard extends StatelessWidget {
           ),
         ],
       ),
+      ),
     );
   }
 }
@@ -272,12 +368,18 @@ class _ResumenEstados extends StatelessWidget {
   final int canceladas;
   final int noShow;
   final int total;
+  final VoidCallback? onTapCompletadas;
+  final VoidCallback? onTapCanceladas;
+  final VoidCallback? onTapNoShow;
 
   const _ResumenEstados({
     required this.completadas,
     required this.canceladas,
     required this.noShow,
     required this.total,
+    this.onTapCompletadas,
+    this.onTapCanceladas,
+    this.onTapNoShow,
   });
 
   @override
@@ -288,19 +390,22 @@ class _ResumenEstados extends StatelessWidget {
             child: _EstadoItem(
                 label: 'Completadas',
                 valor: completadas,
-                color: Colors.green)),
+                color: Colors.green,
+                onTap: onTapCompletadas)),
         const SizedBox(width: 8),
         Expanded(
             child: _EstadoItem(
                 label: 'Canceladas',
                 valor: canceladas,
-                color: Colors.red)),
+                color: Colors.red,
+                onTap: onTapCanceladas)),
         const SizedBox(width: 8),
         Expanded(
             child: _EstadoItem(
                 label: 'No show',
                 valor: noShow,
-                color: Colors.orange)),
+                color: Colors.orange,
+                onTap: onTapNoShow)),
       ],
     );
   }
@@ -310,16 +415,21 @@ class _EstadoItem extends StatelessWidget {
   final String label;
   final int valor;
   final Color color;
+  final VoidCallback? onTap;
 
   const _EstadoItem({
     required this.label,
     required this.valor,
     required this.color,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
       padding: const EdgeInsets.symmetric(
           vertical: 12, horizontal: 8),
       decoration: BoxDecoration(
@@ -340,6 +450,7 @@ class _EstadoItem extends StatelessWidget {
                   fontSize: 11, color: Colors.grey),
               textAlign: TextAlign.center),
         ],
+      ),
       ),
     );
   }

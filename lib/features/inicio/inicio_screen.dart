@@ -5,6 +5,8 @@ import '../../core/models/cita.dart';
 import '../../core/models/usuario.dart';
 import '../../core/models/nota_clinica.dart';
 import '../agenda/agenda_screen.dart';
+import 'lista_citas_mes_screen.dart';
+import 'lista_pacientes_nuevos_screen.dart';
 
 class InicioScreen extends ConsumerWidget {
   final Usuario usuario;
@@ -161,6 +163,14 @@ class _StatsDelMes extends StatelessWidget {
                 valor: '${data.totalMes}',
                 color: Theme.of(context).colorScheme.primary,
                 icono: Icons.calendar_month_outlined,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ListaCitasMesScreen(
+                      titulo: 'Total de citas del mes',
+                    ),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 10),
@@ -170,6 +180,12 @@ class _StatsDelMes extends StatelessWidget {
                 valor: '${data.pacientesNuevosMes}',
                 color: Colors.indigo,
                 icono: Icons.person_add_outlined,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ListaPacientesNuevosScreen(),
+                  ),
+                ),
               ),
             ),
           ],
@@ -183,6 +199,15 @@ class _StatsDelMes extends StatelessWidget {
                 valor: '${data.completadasMes}',
                 color: Colors.green,
                 icono: Icons.check_circle_outlined,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ListaCitasMesScreen(
+                      titulo: 'Citas completadas del mes',
+                      estado: EstadoCita.completada,
+                    ),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 10),
@@ -192,6 +217,15 @@ class _StatsDelMes extends StatelessWidget {
                 valor: '${data.canceladasMes}',
                 color: Colors.red,
                 icono: Icons.cancel_outlined,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ListaCitasMesScreen(
+                      titulo: 'Citas canceladas del mes',
+                      estado: EstadoCita.cancelada,
+                    ),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 10),
@@ -201,6 +235,15 @@ class _StatsDelMes extends StatelessWidget {
                 valor: '${data.noShowMes}',
                 color: Colors.orange,
                 icono: Icons.person_off_outlined,
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ListaCitasMesScreen(
+                      titulo: 'Citas con no show del mes',
+                      estado: EstadoCita.noShow,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
@@ -223,43 +266,49 @@ class _StatChip extends StatelessWidget {
   final String valor;
   final Color color;
   final IconData icono;
+  final VoidCallback? onTap;
   const _StatChip({
     required this.label,
     required this.valor,
     required this.color,
     required this.icono,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withValues(alpha: 0.2)),
-      ),
-      child: Row(
-        children: [
-          Icon(icono, color: color, size: 20),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(valor,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: color)),
-                Text(label,
-                    style: const TextStyle(
-                        fontSize: 10, color: Colors.grey),
-                    overflow: TextOverflow.ellipsis),
-              ],
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: color.withValues(alpha: 0.2)),
+        ),
+        child: Row(
+          children: [
+            Icon(icono, color: color, size: 20),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(valor,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: color)),
+                  Text(label,
+                      style: const TextStyle(
+                          fontSize: 10, color: Colors.grey),
+                      overflow: TextOverflow.ellipsis),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

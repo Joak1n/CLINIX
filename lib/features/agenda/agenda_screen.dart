@@ -47,6 +47,25 @@ class AgendaScreen extends ConsumerWidget {
         title: const Text('Agenda'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.calendar_month),
+            tooltip: 'Ir a una fecha',
+            onPressed: () async {
+              final elegido = await showDatePicker(
+                context: context,
+                initialDate: fechaSeleccionada,
+                firstDate: DateTime(2020, 1, 1),
+                lastDate: DateTime(2035, 12, 31),
+                locale: const Locale('es', 'MX'),
+                helpText: 'Selecciona una fecha',
+                cancelText: 'Cancelar',
+                confirmText: 'Ir',
+              );
+              if (elegido != null) {
+                ref.read(fechaSeleccionadaProvider.notifier).state = elegido;
+              }
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.message),
             tooltip: 'Recordatorios del día',
             onPressed: () => _mostrarRecordatorios(context, ref, fechaStr),
@@ -205,8 +224,7 @@ class _SelectorDias extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hoy = DateTime.now();
-    final dias = List.generate(14, (i) => hoy.add(Duration(days: i - 3)));
+    final dias = List.generate(14, (i) => seleccionado.add(Duration(days: i - 3)));
 
     return SizedBox(
       height: 70,
