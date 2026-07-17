@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/models/cita.dart';
+import '../../core/models/nota_clinica.dart' show EspecialidadExt;
 import '../agenda/editar_cita_screen.dart';
 
 /// Muestra el listado de citas en un rango de fechas (por defecto, el mes
