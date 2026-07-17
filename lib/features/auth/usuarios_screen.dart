@@ -40,80 +40,160 @@ class UsuariosScreen extends ConsumerWidget {
                 u.email == 'admin@mediconfort.com';
 
             return Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: _colorRol(u.rol),
-                  child: Text(
-                    u.nombre[0].toUpperCase(),
-                    style: const TextStyle(
-                        color: Colors.white),
-                  ),
-                ),
-                title: Row(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 14, vertical: 10),
+                child: Row(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.center,
                   children: [
+                    // ── Avatar ────────────────────────
+                    CircleAvatar(
+                      backgroundColor: _colorRol(u.rol),
+                      child: Text(
+                        u.nombre[0].toUpperCase(),
+                        style: const TextStyle(
+                            color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    // ── Info (expandido) ──────────────
                     Expanded(
-                        child: Text(u.nombre)),
-                    if (esYoMismo)
-                      Container(
-                        padding:
-                            const EdgeInsets.symmetric(
-                                horizontal: 6,
-                                vertical: 2),
-                        decoration: BoxDecoration(
-                          color: Colors.teal
-                              .withValues(alpha: 0.15),
-                          borderRadius:
-                              BorderRadius.circular(4),
-                        ),
-                        child: const Text('Tú',
-                            style: TextStyle(
-                                fontSize: 11,
-                                color: Colors.teal)),
+                      child: Column(
+                        crossAxisAlignment:
+                            CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Fila 1: nombre + chip "Tú"
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  u.nombre,
+                                  style: const TextStyle(
+                                      fontWeight:
+                                          FontWeight.w600,
+                                      fontSize: 14),
+                                  overflow:
+                                      TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
+                              ),
+                              if (esYoMismo) ...[
+                                const SizedBox(width: 6),
+                                Container(
+                                  padding: const EdgeInsets
+                                      .symmetric(
+                                      horizontal: 6,
+                                      vertical: 2),
+                                  decoration: BoxDecoration(
+                                    color: Colors.teal
+                                        .withValues(
+                                            alpha: 0.15),
+                                    borderRadius:
+                                        BorderRadius
+                                            .circular(4),
+                                  ),
+                                  child: const Text('Tú',
+                                      style: TextStyle(
+                                          fontSize: 11,
+                                          color:
+                                              Colors.teal)),
+                                ),
+                              ],
+                            ],
+                          ),
+                          const SizedBox(height: 2),
+                          // Fila 2: email · rol
+                          Text(
+                            '${u.email} · ${u.rol.etiqueta}',
+                            style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                          const SizedBox(height: 4),
+                          // Fila 3: switch + acciones
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment
+                                    .spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisSize:
+                                    MainAxisSize.min,
+                                children: [
+                                  Switch(
+                                    value: u.activo,
+                                    onChanged: esYoMismo
+                                        ? null
+                                        : (v) async {
+                                            await ref
+                                                .read(
+                                                    usuarioRepositoryProvider)
+                                                .actualizarEstado(
+                                                    u.id, v);
+                                            ref.invalidate(
+                                                _usuariosProvider);
+                                          },
+                                  ),
+                                  Text(
+                                    u.activo
+                                        ? 'Activo'
+                                        : 'Inactivo',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: u.activo
+                                          ? Colors.green
+                                          : Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisSize:
+                                    MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(
+                                        Icons.key_outlined,
+                                        size: 18),
+                                    visualDensity:
+                                        VisualDensity
+                                            .compact,
+                                    tooltip:
+                                        'Cambiar contraseña',
+                                    onPressed: () =>
+                                        _mostrarCambioPassword(
+                                            context, ref, u),
+                                  ),
+                                  if (!esYoMismo)
+                                    IconButton(
+                                      icon: const Icon(
+                                          Icons
+                                              .delete_outline,
+                                          size: 18,
+                                          color:
+                                              Colors.red),
+                                      visualDensity:
+                                          VisualDensity
+                                              .compact,
+                                      tooltip:
+                                          'Eliminar usuario',
+                                      onPressed: () =>
+                                          _confirmarEliminar(
+                                              context,
+                                              ref,
+                                              u),
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                  ],
-                ),
-                subtitle: Text(
-                    '${u.email} · ${u.rol.etiqueta}'),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Switch activo/inactivo
-                    Switch(
-                      value: u.activo,
-                      onChanged: esYoMismo
-                          ? null
-                          : (v) async {
-                              await ref
-                                  .read(
-                                      usuarioRepositoryProvider)
-                                  .actualizarEstado(
-                                      u.id, v);
-                              ref.invalidate(
-                                  _usuariosProvider);
-                            },
                     ),
-                    // Botón cambiar contraseña
-                    IconButton(
-                      icon: const Icon(
-                          Icons.key_outlined,
-                          size: 20),
-                      tooltip: 'Cambiar contraseña',
-                      onPressed: () =>
-                          _mostrarCambioPassword(
-                              context, ref, u),
-                    ),
-                    // Botón eliminar
-                    if (!esYoMismo)
-                      IconButton(
-                        icon: const Icon(
-                            Icons.delete_outline,
-                            size: 20,
-                            color: Colors.red),
-                        tooltip: 'Eliminar usuario',
-                        onPressed: () =>
-                            _confirmarEliminar(
-                                context, ref, u),
-                      ),
                   ],
                 ),
               ),
