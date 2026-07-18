@@ -23,6 +23,7 @@ import 'notas_internas_widget.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:cross_file/cross_file.dart';
 import 'comprobante_screen.dart';
+import 'consentimiento_screen.dart';
 import '../rutinas/generador_rutinas_screen.dart';
 import 'adjuntos_screen.dart';
 import '../../core/models/adjunto.dart';
@@ -107,6 +108,16 @@ class ExpedienteScreen extends ConsumerWidget {
               ),
               const PopupMenuDivider(),
               const PopupMenuItem(
+                value: 'consentimiento',
+                child: ListTile(
+                  leading: Icon(Icons.fact_check_outlined, color: Colors.indigo),
+                  title: Text('Consentimiento informado'),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+              const PopupMenuDivider(),
+              const PopupMenuItem(
                 value: 'comprobante',
                 child: ListTile(
                   leading: Icon(Icons.receipt_long_outlined),
@@ -150,6 +161,11 @@ class ExpedienteScreen extends ConsumerWidget {
                 case 'adjuntos':
                   Navigator.push(context, MaterialPageRoute(
                     builder: (_) => AdjuntosScreen(paciente: paciente),
+                  ));
+                  break;
+                case 'consentimiento':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => ConsentimientoScreen(paciente: paciente),
                   ));
                   break;
                 case 'comprobante':

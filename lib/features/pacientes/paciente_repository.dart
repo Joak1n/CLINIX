@@ -2,6 +2,7 @@ import 'package:uuid/uuid.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/models/paciente.dart';
 import '../../core/services/supabase_service.dart';
+import '../../core/services/auditoria_service.dart';
 
 class PacienteRepository {
   final _db = DatabaseHelper.instance;
@@ -69,6 +70,12 @@ void _subirPaciente(Paciente p) async {
       updatedAt: ahora,
     );
     await guardar(paciente);
+    AuditoriaService.registrar(
+      accion: 'crear',
+      entidad: 'paciente',
+      entidadId: paciente.id,
+      detalle: paciente.nombreCompleto,
+    );
     return paciente;
   }
 
@@ -93,6 +100,13 @@ void _subirPaciente(Paciente p) async {
       where: 'id = ?',
       whereArgs: [paciente.id],
     );
+    _subirPaciente(paciente);
+    AuditoriaService.registrar(
+      accion: 'actualizar',
+      entidad: 'paciente',
+      entidadId: paciente.id,
+      detalle: paciente.nombreCompleto,
+    );
   }
 
   Future<void> eliminar(String id) async {
@@ -111,6 +125,11 @@ void _subirPaciente(Paciente p) async {
           .delete()
           .eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'eliminar',
+      entidad: 'paciente',
+      entidadId: id,
+    );
   }
   Future<List<Paciente>> buscar(String query) async {
     final db = await _db.database;

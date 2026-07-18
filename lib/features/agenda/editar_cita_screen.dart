@@ -5,6 +5,8 @@ import '../../core/models/nota_clinica.dart';
 import '../../core/models/paciente.dart';
 import '../../core/models/usuario.dart';
 import '../../core/database/database_helper.dart';
+import '../../core/services/horario_service.dart';
+import '../../core/services/configuracion_service.dart';
 import '../auth/auth_provider.dart';
 import 'agenda_provider.dart';
 import '../../core/services/whatsapp_service.dart';
@@ -42,6 +44,11 @@ class _EditarCitaScreenState extends ConsumerState<EditarCitaScreen> {
     _especialidad = widget.cita.especialidad;
     _estado = widget.cita.estado;
     _duracion = widget.cita.duracionMinutos;
+    _esPacienteTemporal = widget.cita.pacienteId == null;
+    if (_esPacienteTemporal) {
+      _nombreTemporal.text = widget.cita.nombreTemporal ?? '';
+      _telefonoTemporal.text = widget.cita.telefonoTemporal ?? '';
+    }
 
     final partesFecha = widget.cita.fecha.split('-');
     _fecha = DateTime(
@@ -115,46 +122,158 @@ class _EditarCitaScreenState extends ConsumerState<EditarCitaScreen> {
       return;
     }
 
+    // ── Validar horario, bloqueos y capacidad (solo si cambió algo relevante) ──
+    final conflicto = await _validarDisponibilidad();
+    if (conflicto != null) {
+      final continuar = await showDialog<bool>(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: const Row(children: [
+            Icon(Icons.warning_amber_rounded, color: Colors.orange),
+            SizedBox(width: 8),
+            Text('Conflicto de horario'),
+          ]),
+          content: Text(conflicto),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Guardar de todas formas'),
+            ),
+          ],
+        ),
+      );
+      if (continuar != true) return;
+    }
+
+    await _guardarCambios();
+  }
+
+  /// Revisa horario de atención, bloqueos y capacidad simultánea para la
+  /// fecha/hora seleccionadas, excluyendo esta misma cita de los conteos.
+  /// Retorna null si todo está bien, o un mensaje descriptivo del conflicto.
+  Future<String?> _validarDisponibilidad() async {
+    final fechaStr = _formatFecha(_fecha);
+    final horaStr = _formatHora(_hora);
+    final diaSemana = _fecha.weekday; // 1=Lun…7=Dom
+
+    // 1. ¿El consultorio atiende ese día?
+    final horario = await HorarioService.obtenerHorarioDia(diaSemana);
+    if (horario == null || !horario.activo) {
+      final dias = [
+        '', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'
+      ];
+      return 'El consultorio no atiende los ${dias[diaSemana]}s.\n\n'
+          'Puedes ajustar los días de atención en Configuración → Horarios.';
+    }
+
+    // 2. ¿La hora está dentro del horario de atención?
+    final slotsValidos = horario.slots(_duracion);
+    if (!slotsValidos.contains(horaStr)) {
+      return 'El horario $horaStr está fuera del horario de atención '
+          '(${horario.horaInicio} – ${horario.horaFin}).\n\n'
+          'Selecciona una hora dentro del horario del consultorio.';
+    }
+
+    // 3. ¿Hay algún bloqueo activo para esa fecha/hora?
+    final bloqueos = await HorarioService.obtenerBloqueos();
+    for (final b in bloqueos) {
+      if (b.bloqueaSlot(fechaStr, horaStr)) {
+        return b.esDiaCompleto
+            ? 'El día ${b.rangoFechaTexto} está bloqueado en la agenda.\n\n'
+                'Puedes eliminar el bloqueo en Configuración → Horarios → Bloqueos.'
+            : 'El horario $horaStr está bloqueado '
+                '(${b.horaInicio} – ${b.horaFin}) el ${b.rangoFechaTexto}.\n\n'
+                'Puedes eliminar el bloqueo en Configuración → Horarios → Bloqueos.';
+      }
+    }
+
+    // 4. ¿Hay capacidad disponible (terapeutas simultáneos)? (excluyendo esta cita)
+    final terapeutasSimultaneos =
+        await ConfiguracionService.getTerapeutasSimultaneos();
+    final db = await DatabaseHelper.instance.database;
+    final citasEnSlot = await db.query(
+      'citas',
+      where: 'fecha = ? AND hora = ? AND estado != ? AND id != ?',
+      whereArgs: [fechaStr, horaStr, 'cancelada', widget.cita.id],
+    );
+    if (citasEnSlot.length >= terapeutasSimultaneos) {
+      return 'El horario $horaStr ya tiene ${citasEnSlot.length} '
+          '${citasEnSlot.length == 1 ? 'cita agendada' : 'citas agendadas'}, '
+          'que es el máximo de atención simultánea configurado ($terapeutasSimultaneos).\n\n'
+          'Selecciona otro horario o aumenta la capacidad en Configuración → Horarios.';
+    }
+
+    // 5. ¿El terapeuta ya tiene otra cita en ese horario? (excluyendo esta cita)
+    final citasTerapeuta = await db.query(
+      'citas',
+      where: 'fecha = ? AND hora = ? AND terapeuta = ? AND estado != ? AND id != ?',
+      whereArgs: [
+        fechaStr,
+        horaStr,
+        _terapeutaSeleccionado!.nombre,
+        'cancelada',
+        widget.cita.id,
+      ],
+    );
+    if (citasTerapeuta.isNotEmpty) {
+      return '${_terapeutaSeleccionado!.nombre} ya tiene otra cita agendada '
+          'a las $horaStr.\n\n'
+          'Selecciona otro horario u otro terapeuta.';
+    }
+
+    return null; // todo OK
+  }
+
+  Future<void> _guardarCambios() async {
     setState(() => _guardando = true);
     try {
-      // Para paciente temporal usar un ID placeholder
-      final pacienteId = _esPacienteTemporal
-          ? 'temporal'
-          : _pacienteSeleccionado!.id;
       final nombrePaciente = _esPacienteTemporal
           ? _nombreTemporal.text.trim()
           : _pacienteSeleccionado!.nombreCompleto;
 
-      final cita = await ref.read(citaRepositoryProvider).crear(
-            pacienteId: pacienteId,
-            especialidad: _especialidad,
-            fecha: _formatFecha(_fecha),
-            hora: _formatHora(_hora),
-            duracionMinutos: _duracion,
-            terapeuta: _terapeutaSeleccionado!.nombre,
-            notas: _notas.text.trim().isEmpty
-                ? null
-                : _notas.text.trim(),
-          );
+      final citaActualizada = Cita(
+        id: widget.cita.id,
+        pacienteId: _esPacienteTemporal ? null : _pacienteSeleccionado!.id,
+        nombreTemporal:
+            _esPacienteTemporal ? _nombreTemporal.text.trim() : null,
+        telefonoTemporal: _esPacienteTemporal &&
+                _telefonoTemporal.text.trim().isNotEmpty
+            ? _telefonoTemporal.text.trim()
+            : null,
+        especialidad: _especialidad,
+        fecha: _formatFecha(_fecha),
+        hora: _formatHora(_hora),
+        duracionMinutos: _duracion,
+        terapeuta: _terapeutaSeleccionado!.nombre,
+        estado: _estado,
+        notas: _notas.text.trim().isEmpty ? null : _notas.text.trim(),
+        createdAt: widget.cita.createdAt,
+      );
+
+      await ref.read(citaRepositoryProvider).actualizar(citaActualizada);
 
       if (mounted) {
         // Si tiene teléfono temporal, ofrecer notificar
         if (_esPacienteTemporal &&
             _telefonoTemporal.text.trim().isNotEmpty) {
           await _notificarPacienteTemporal(
-              cita, nombrePaciente,
+              citaActualizada, nombrePaciente,
               _telefonoTemporal.text.trim());
         } else if (!_esPacienteTemporal) {
           await showDialog(
             context: context,
             barrierDismissible: false,
             builder: (_) => _DialogoCitaGuardada(
-              cita: cita,
+              cita: citaActualizada,
               paciente: _pacienteSeleccionado!,
             ),
           );
         }
-        Navigator.pop(context);
+        if (mounted) Navigator.pop(context);
       }
     } catch (e) {
       if (mounted) {

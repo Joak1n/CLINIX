@@ -11,6 +11,8 @@ import 'especialidad_provider.dart';
 import '../../core/models/especialidad_personalizada.dart';
 import 'migracion_screen.dart';
 import 'horarios_screen.dart';
+import '../../core/services/backup_service.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ConfiguracionScreen extends ConsumerStatefulWidget {
   const ConfiguracionScreen({super.key});
@@ -27,11 +29,32 @@ class _ConfiguracionScreenState
   final _direccion = TextEditingController();
   final _codigoAcceso = TextEditingController();
   bool _guardando = false;
+  bool _generandoBackup = false;
 
   @override
   void initState() {
     super.initState();
     _cargar();
+  }
+
+  Future<void> _exportarBackup() async {
+    setState(() => _generandoBackup = true);
+    try {
+      final archivo = await BackupService.generar();
+      if (!mounted) return;
+      await Share.shareXFiles(
+        [XFile(archivo.path, mimeType: 'application/json')],
+        subject: 'Respaldo CLINIX',
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error al generar el respaldo: $e')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _generandoBackup = false);
+    }
   }
 
   Future<void> _cargar() async {
@@ -530,6 +553,33 @@ class _ConfiguracionScreenState
               MaterialPageRoute(
                   builder: (_) => const MigracionScreen()),
             ),
+          ),
+          const SizedBox(height: 32),
+          const Divider(),
+          const SizedBox(height: 16),
+          const Text('Respaldo de datos',
+              style: TextStyle(
+                  fontWeight: FontWeight.w600, fontSize: 14)),
+          const SizedBox(height: 6),
+          const Text(
+            'Genera una copia de tus pacientes, citas e historial en un '
+            'archivo que puedes guardar en Drive, enviar por correo o '
+            'quedarte como respaldo adicional.',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            icon: _generandoBackup
+                ? const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.backup_outlined),
+            label: Text(_generandoBackup
+                ? 'Generando respaldo...'
+                : 'Exportar respaldo'),
+            onPressed: _generandoBackup ? null : _exportarBackup,
           ),
           const SizedBox(height: 16),
         ],

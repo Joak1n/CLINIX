@@ -11,6 +11,7 @@ import 'features/auth/auth_provider.dart';
 import 'features/auth/login_screen.dart';
 import 'features/auth/configuracion_screen.dart';
 import 'features/auth/usuarios_screen.dart';
+import 'features/auth/auditoria_screen.dart';
 import 'features/pacientes/pacientes_screen.dart';
 import 'features/agenda/agenda_screen.dart';
 import 'features/onboarding/onboarding_screen.dart';
@@ -18,6 +19,8 @@ import 'features/inicio/inicio_screen.dart';
 import 'shared/widgets/consultorio_header.dart';
 import 'core/services/supabase_service.dart';
 import 'core/services/sync_service.dart';
+import 'core/services/auditoria_service.dart';
+import 'core/services/consentimiento_service.dart';
 import 'core/providers/sync_provider.dart';
 import 'core/services/realtime_service.dart';
 import 'core/providers/realtime_provider.dart';
@@ -34,6 +37,8 @@ void main() async {
     final conectado = await SupabaseService.isConnected();
     if (conectado) {
       await SyncService.bajarTodo();
+      await AuditoriaService.bajarTodo();
+      await ConsentimientoService.bajarTodo();
       await ConfiguracionService.descargarLogoDeSupabase();
     }
   } catch (_) {}
@@ -291,6 +296,10 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                 try {
                   await SyncService.subirTodo();
                   await SyncService.bajarTodo();
+                  await AuditoriaService.subirTodo();
+                  await AuditoriaService.bajarTodo();
+                  await ConsentimientoService.subirTodo();
+                  await ConsentimientoService.bajarTodo();
                   ref.read(syncEstadoProvider.notifier).state =
                       SyncEstado.sincronizado;
                   if (context.mounted) {
@@ -326,6 +335,20 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                     context,
                     MaterialPageRoute(
                         builder: (_) => const ConfiguracionScreen()),
+                  );
+                },
+              ),
+            if (widget.usuario.rol.puedeGestionarUsuarios)
+              ListTile(
+                leading: const Icon(Icons.history_outlined),
+                title: const Text('Auditoría'),
+                subtitle: const Text('Historial de acciones en el sistema'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const AuditoriaScreen()),
                   );
                 },
               ),

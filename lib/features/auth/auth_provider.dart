@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/models/usuario.dart';
+import '../../core/services/sesion_actual.dart';
 import 'usuario_repository.dart';
 
 final usuarioRepositoryProvider =
@@ -58,8 +59,9 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
         whereArgs: [email, passwordHash],
       );
       if (maps.isNotEmpty) {
-        return AuthState(
-            usuario: Usuario.fromMap(maps.first));
+        final usuario = Usuario.fromMap(maps.first);
+        SesionActual.actual = usuario;
+        return AuthState(usuario: usuario);
       }
     }
     return const AuthState();
@@ -87,6 +89,7 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
         'session_password_hash', usuario.passwordHash);
 
     state = AsyncData(AuthState(usuario: usuario));
+    SesionActual.actual = usuario;
   }
 
   Future<void> logout() async {
@@ -94,6 +97,7 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
     await prefs.remove('session_email');
     await prefs.remove('session_password_hash');
     state = const AsyncData(AuthState());
+    SesionActual.actual = null;
   }
 }
 

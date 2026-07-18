@@ -3,6 +3,7 @@ import '../../core/database/database_helper.dart';
 import '../../core/models/cita.dart';
 import '../../core/models/nota_clinica.dart';
 import '../../core/services/supabase_service.dart';
+import '../../core/services/auditoria_service.dart';
 
 class CitaRepository {
   final _db = DatabaseHelper.instance;
@@ -64,6 +65,13 @@ class CitaRepository {
     final db = await _db.database;
     await db.insert('citas', cita.toMap());
     _subirCita(cita);
+    AuditoriaService.registrar(
+      accion: 'crear',
+      entidad: 'cita',
+      entidadId: cita.id,
+      detalle:
+          'Cita ${cita.fecha} ${cita.hora} · ${cita.especialidad.valor} · ${cita.terapeuta}',
+    );
     return cita;
   }
 
@@ -76,6 +84,11 @@ class CitaRepository {
           .delete()
           .eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'eliminar',
+      entidad: 'cita',
+      entidadId: id,
+    );
   }
 
   Future<void> actualizarEstado(String id, EstadoCita estado) async {
@@ -91,6 +104,12 @@ class CitaRepository {
           .from('citas')
           .update({'estado': estado.valor}).eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'cambiar_estado',
+      entidad: 'cita',
+      entidadId: id,
+      detalle: 'Nuevo estado: ${estado.etiqueta}',
+    );
   }
   Future<void> actualizar(Cita cita) async {
     final db = await _db.database;
@@ -101,6 +120,13 @@ class CitaRepository {
       whereArgs: [cita.id],
     );
     _subirCita(cita);
+    AuditoriaService.registrar(
+      accion: 'actualizar',
+      entidad: 'cita',
+      entidadId: cita.id,
+      detalle:
+          'Cita ${cita.fecha} ${cita.hora} · ${cita.especialidad.valor} · ${cita.terapeuta} · ${cita.estado.etiqueta}',
+    );
   }
   void _subirCita(Cita c) async {
   try {

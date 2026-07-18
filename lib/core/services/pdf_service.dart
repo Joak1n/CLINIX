@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:path_provider/path_provider.dart';
@@ -7,6 +8,7 @@ import '../models/nota_clinica.dart';
 import '../models/historia_clinica.dart';
 import '../models/signos_vitales.dart';
 import 'configuracion_service.dart';
+import 'consentimiento_service.dart' show textoConsentimientoInformado;
 import 'package:flutter/foundation.dart';
 import '../models/comprobante.dart';
 import '../models/ejercicio.dart';
@@ -1674,5 +1676,107 @@ class PdfService {
           ),
         ),
       );
+
+  static Future<String> generarConsentimiento({
+    required Paciente paciente,
+    required Uint8List firmaPng,
+    required DateTime fechaFirma,
+  }) async {
+    final pdf = pw.Document();
+    final nombreConsultorio =
+        await ConfiguracionService.getNombreConsultorio();
+    final telefonoConsultorio =
+        await ConfiguracionService.getTelefonoConsultorio();
+    final direccionConsultorio =
+        await ConfiguracionService.getDireccionConsultorio();
+    final logoPath = await ConfiguracionService.getLogoPath();
+
+    pw.ImageProvider? logoImage;
+    if (logoPath != null && await File(logoPath).exists()) {
+      final bytes = await File(logoPath).readAsBytes();
+      logoImage = pw.MemoryImage(bytes);
+    }
+
+    final colorPrimario = await getColorPrimarioPdf();
+    final colorBorde = PdfColor.fromHex('#E0E0E0');
+    final colorTextoGris = PdfColor.fromHex('#666666');
+    final firmaImagen = pw.MemoryImage(firmaPng);
+
+    final fechaTexto =
+        '${fechaFirma.day.toString().padLeft(2, '0')}/${fechaFirma.month.toString().padLeft(2, '0')}/${fechaFirma.year} '
+        '${fechaFirma.hour.toString().padLeft(2, '0')}:${fechaFirma.minute.toString().padLeft(2, '0')}';
+
+    pdf.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        margin: const pw.EdgeInsets.all(32),
+        build: (context) => [
+          _encabezado(
+            nombreConsultorio,
+            telefonoConsultorio,
+            logoImage,
+            colorPrimario,
+            colorBorde,
+            direccionConsultorio,
+          ),
+          pw.SizedBox(height: 16),
+          pw.Container(
+            width: double.infinity,
+            padding: const pw.EdgeInsets.symmetric(vertical: 8),
+            decoration: pw.BoxDecoration(
+              color: colorPrimario,
+              borderRadius: pw.BorderRadius.circular(6),
+            ),
+            child: pw.Text(
+              'CONSENTIMIENTO INFORMADO',
+              textAlign: pw.TextAlign.center,
+              style: pw.TextStyle(
+                color: PdfColors.white,
+                fontSize: 14,
+                fontWeight: pw.FontWeight.bold,
+              ),
+            ),
+          ),
+          pw.SizedBox(height: 12),
+          pw.Text(
+            'Paciente: ${paciente.nombreCompleto}',
+            style: pw.TextStyle(
+                fontSize: 11, fontWeight: pw.FontWeight.bold),
+          ),
+          pw.SizedBox(height: 4),
+          pw.Text('Fecha: $fechaTexto',
+              style: pw.TextStyle(fontSize: 10, color: colorTextoGris)),
+          pw.SizedBox(height: 14),
+          pw.Text(
+            textoConsentimientoInformado,
+            style: const pw.TextStyle(fontSize: 9.5, lineSpacing: 2),
+          ),
+          pw.SizedBox(height: 20),
+          pw.Text('Firma del paciente (o responsable legal):',
+              style: pw.TextStyle(fontSize: 10, color: colorTextoGris)),
+          pw.SizedBox(height: 6),
+          pw.Container(
+            height: 90,
+            width: 220,
+            decoration: pw.BoxDecoration(
+              border: pw.Border.all(color: colorBorde),
+              borderRadius: pw.BorderRadius.circular(4),
+            ),
+            child: pw.Image(firmaImagen, fit: pw.BoxFit.contain),
+          ),
+          pw.SizedBox(height: 4),
+          pw.Text(paciente.nombreCompleto,
+              style: pw.TextStyle(fontSize: 9, color: colorTextoGris)),
+        ],
+      ),
+    );
+
+    final dir = await getApplicationDocumentsDirectory();
+    final archivo = File(
+        '${dir.path}/consentimiento_${paciente.id}_${DateTime.now().millisecondsSinceEpoch}.pdf');
+    await archivo.writeAsBytes(await pdf.save());
+    return archivo.path;
+  }
 }
+
 

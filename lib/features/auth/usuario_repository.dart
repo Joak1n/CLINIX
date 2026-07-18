@@ -2,6 +2,7 @@ import 'package:uuid/uuid.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/models/usuario.dart';
 import '../../core/services/supabase_service.dart';
+import '../../core/services/auditoria_service.dart';
 import '../../core/utils/hash_util.dart';
 
 class UsuarioRepository {
@@ -95,6 +96,12 @@ class UsuarioRepository {
         'activo': true,
       });
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'crear',
+      entidad: 'usuario',
+      entidadId: id,
+      detalle: '${nombre.trim()} (${rol.etiqueta})',
+    );
   }
 
   Future<void> actualizarEstado(String id, bool activo) async {
@@ -113,6 +120,12 @@ class UsuarioRepository {
           .from('usuarios')
           .update({'activo': activo}).eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'cambiar_estado',
+      entidad: 'usuario',
+      entidadId: id,
+      detalle: activo ? 'Activado' : 'Desactivado',
+    );
   }
 
   Future<void> cambiarPassword(
@@ -133,6 +146,12 @@ class UsuarioRepository {
           .from('usuarios')
           .update({'password_hash': hash}).eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'actualizar',
+      entidad: 'usuario',
+      entidadId: id,
+      detalle: 'Contraseña actualizada',
+    );
   }
 
   Future<void> eliminar(String id) async {
@@ -145,6 +164,11 @@ class UsuarioRepository {
           .delete()
           .eq('id', id);
     } catch (_) {}
+    AuditoriaService.registrar(
+      accion: 'eliminar',
+      entidad: 'usuario',
+      entidadId: id,
+    );
   }
 }
 
