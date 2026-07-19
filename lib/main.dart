@@ -21,6 +21,9 @@ import 'core/services/supabase_service.dart';
 import 'core/services/sync_service.dart';
 import 'core/services/auditoria_service.dart';
 import 'core/services/consentimiento_service.dart';
+import 'core/services/horario_service.dart';
+import 'features/auth/especialidad_repository.dart';
+import 'core/services/bitacora_sync_service.dart';
 import 'core/providers/sync_provider.dart';
 import 'core/services/realtime_service.dart';
 import 'core/providers/realtime_provider.dart';
@@ -39,6 +42,9 @@ void main() async {
       await SyncService.bajarTodo();
       await AuditoriaService.bajarTodo();
       await ConsentimientoService.bajarTodo();
+      await HorarioService.bajarTodo();
+      await EspecialidadRepository.bajarTodo();
+      await BitacoraSyncService.bajarTodo();
       await ConfiguracionService.descargarLogoDeSupabase();
     }
   } catch (_) {}
@@ -294,19 +300,32 @@ class _HomeShellState extends ConsumerState<HomeShell> {
                 ref.read(syncEstadoProvider.notifier).state =
                     SyncEstado.sincronizando;
                 try {
-                  await SyncService.subirTodo();
-                  await SyncService.bajarTodo();
+                  final fallosSubida = await SyncService.subirTodo();
+                  final fallosBajada = await SyncService.bajarTodo();
                   await AuditoriaService.subirTodo();
                   await AuditoriaService.bajarTodo();
                   await ConsentimientoService.subirTodo();
                   await ConsentimientoService.bajarTodo();
-                  ref.read(syncEstadoProvider.notifier).state =
-                      SyncEstado.sincronizado;
+                  await HorarioService.subirTodo();
+                  await HorarioService.bajarTodo();
+                  await EspecialidadRepository.subirTodo();
+                  await EspecialidadRepository.bajarTodo();
+                  await BitacoraSyncService.subirTodo();
+                  await BitacoraSyncService.bajarTodo();
+                  final fallos = {...fallosSubida, ...fallosBajada};
+                  ref.read(syncEstadoProvider.notifier).state = fallos.isEmpty
+                      ? SyncEstado.sincronizado
+                      : SyncEstado.error;
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('✓ Sincronización completada'),
-                        backgroundColor: Colors.teal,
+                      SnackBar(
+                        content: Text(
+                          fallos.isEmpty
+                              ? '✓ Sincronización completada'
+                              : '⚠ Sincronización parcial — falló: ${fallos.join(', ')}',
+                        ),
+                        backgroundColor:
+                            fallos.isEmpty ? Colors.teal : Colors.orange,
                       ),
                     );
                   }

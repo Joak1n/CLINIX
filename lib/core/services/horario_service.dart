@@ -2,6 +2,7 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:sqflite/sqflite.dart' show ConflictAlgorithm, Sqflite;
 import '../database/database_helper.dart';
 import '../models/horario_atencion.dart';
+import 'supabase_service.dart';
 
 class HorarioService {
   // ── Helpers internos ────────────────────────────────────────────────────
@@ -71,6 +72,17 @@ class HorarioService {
           conflictAlgorithm: ConflictAlgorithm.replace);
     }
     await batch.commit(noResult: true);
+    for (final h in horarios) {
+      _subirHorario(h);
+    }
+  }
+
+  static void _subirHorario(HorarioAtencion h) async {
+    try {
+      await SupabaseService.client.from('horarios_atencion').upsert(h.toMap());
+    } catch (_) {
+      // Se reintentará con "Sincronizar con la nube".
+    }
   }
 
   // ── Bloqueos ────────────────────────────────────────────────────────────
@@ -90,11 +102,62 @@ class HorarioService {
   static Future<void> agregarBloqueo(BloqueoHorario bloqueo) async {
     final db = await DatabaseHelper.instance.database;
     await db.insert('bloqueos_horario', bloqueo.toMap());
+    try {
+      await SupabaseService.client
+          .from('bloqueos_horario')
+          .upsert(bloqueo.toMap());
+    } catch (_) {}
   }
 
   static Future<void> eliminarBloqueo(String id) async {
     final db = await DatabaseHelper.instance.database;
     await db.delete('bloqueos_horario', where: 'id = ?', whereArgs: [id]);
+    try {
+      await SupabaseService.client
+          .from('bloqueos_horario')
+          .delete()
+          .eq('id', id);
+    } catch (_) {}
+  }
+
+  // ── Sincronización con Supabase ─────────────────────────────────────────
+
+  static Future<void> subirTodo() async {
+    final db = await DatabaseHelper.instance.database;
+    await _asegurarTablas(db);
+    final horarios = await db.query('horarios_atencion');
+    for (final h in horarios) {
+      try {
+        await SupabaseService.client.from('horarios_atencion').upsert(h);
+      } catch (_) {}
+    }
+    final bloqueos = await db.query('bloqueos_horario');
+    for (final b in bloqueos) {
+      try {
+        await SupabaseService.client.from('bloqueos_horario').upsert(b);
+      } catch (_) {}
+    }
+  }
+
+  static Future<void> bajarTodo() async {
+    final db = await DatabaseHelper.instance.database;
+    await _asegurarTablas(db);
+    try {
+      final horarios =
+          await SupabaseService.client.from('horarios_atencion').select();
+      for (final h in horarios) {
+        await db.insert('horarios_atencion', h,
+            conflictAlgorithm: ConflictAlgorithm.replace);
+      }
+    } catch (_) {}
+    try {
+      final bloqueos =
+          await SupabaseService.client.from('bloqueos_horario').select();
+      for (final b in bloqueos) {
+        await db.insert('bloqueos_horario', b,
+            conflictAlgorithm: ConflictAlgorithm.replace);
+      }
+    } catch (_) {}
   }
 
   // ── Disponibilidad ──────────────────────────────────────────────────────

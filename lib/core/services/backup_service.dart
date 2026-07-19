@@ -19,6 +19,8 @@ class BackupService {
     'bloqueos_horario',
     'auditoria',
     'consentimientos_informados',
+    'especialidades',
+    'bitacora_sesiones',
   ];
 
   /// Genera el archivo de respaldo y devuelve su ruta local.

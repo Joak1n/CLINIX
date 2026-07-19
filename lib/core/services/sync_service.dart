@@ -29,14 +29,31 @@ class SyncService {
 
   // ── SUBIR todo lo local a Supabase ────────────────────────
 
-  static Future<void> subirTodo() async {
-    await subirUsuarios();
-    await subirPacientes();
-    await subirNotasClinicas();
-    await subirNotasInternas();
-    await subirCitas();
-    await subirHistoriaClinica();
-    await subirSignosVitales();
+  /// Sube todas las tablas. Retorna la lista de pasos que fallaron (vacía
+  /// si todo salió bien) — un fallo en un paso NUNCA detiene a los demás.
+  static Future<List<String>> subirTodo() async {
+    final fallos = <String>[];
+    await _intentar('usuarios', subirUsuarios, fallos);
+    await _intentar('pacientes', subirPacientes, fallos);
+    await _intentar('notas clínicas', subirNotasClinicas, fallos);
+    await _intentar('notas internas', subirNotasInternas, fallos);
+    await _intentar('citas', subirCitas, fallos);
+    await _intentar('historia clínica', subirHistoriaClinica, fallos);
+    await _intentar('signos vitales', subirSignosVitales, fallos);
+    return fallos;
+  }
+
+  /// Ejecuta un paso de sincronización de forma aislada: si falla, se
+  /// añade a [fallos] pero NO detiene el resto de la cadena.
+  static Future<void> _intentar(
+      String nombre, Future<void> Function() fn, List<String> fallos) async {
+    try {
+      await fn();
+    } catch (e) {
+      fallos.add(nombre);
+      // ignore: avoid_print
+      print('SyncService: fallo al sincronizar "$nombre" → $e');
+    }
   }
 
   static Future<void> subirUsuarios() async {
@@ -195,15 +212,19 @@ class SyncService {
 
   // ── BAJAR todo de Supabase a local ────────────────────────
 
-  static Future<void> bajarTodo() async {
+  /// Baja todas las tablas. Retorna la lista de pasos que fallaron (vacía
+  /// si todo salió bien) — un fallo en un paso NUNCA detiene a los demás.
+  static Future<List<String>> bajarTodo() async {
+    final fallos = <String>[];
     // El orden importa — primero las tablas padre, luego las hijas
-    await bajarUsuarios();
-    await bajarPacientes();           // 1. padre
-    await bajarNotasClinicas();       // 2. depende de pacientes
-    await bajarNotasInternas();       // 3. depende de notas_clinicas
-    await bajarCitas();               // 4. depende de pacientes
-    await bajarHistoriaClinica();     // 5. depende de pacientes
-    await bajarSignosVitales();       // 6. depende de pacientes
+    await _intentar('usuarios', bajarUsuarios, fallos);
+    await _intentar('pacientes', bajarPacientes, fallos);           // 1. padre
+    await _intentar('notas clínicas', bajarNotasClinicas, fallos);  // 2. depende de pacientes
+    await _intentar('notas internas', bajarNotasInternas, fallos);  // 3. depende de notas_clinicas
+    await _intentar('citas', bajarCitas, fallos);                   // 4. depende de pacientes
+    await _intentar('historia clínica', bajarHistoriaClinica, fallos); // 5. depende de pacientes
+    await _intentar('signos vitales', bajarSignosVitales, fallos);  // 6. depende de pacientes
+    return fallos;
   }
 
   static Future<void> bajarUsuarios() async {

@@ -4,6 +4,8 @@ import 'package:uuid/uuid.dart';
 import '../../core/database/database_helper.dart';
 import '../../core/models/paciente.dart';
 import '../../core/models/bitacora_sesion.dart';
+import '../../core/services/bitacora_sync_service.dart';
+import '../../core/services/supabase_service.dart';
 import '../auth/auth_provider.dart';
 
 // ── Provider ────────────────────────────────────────────────────────────────
@@ -168,6 +170,7 @@ class BitacoraProgresoScreen extends ConsumerWidget {
                         await db.delete('bitacora_sesiones',
                             where: 'id = ?',
                             whereArgs: [sesiones[i].id]);
+                        BitacoraSyncService.eliminarRegistro(sesiones[i].id);
                         ref.invalidate(
                             bitacoraProvider(paciente.id));
                       }
@@ -530,6 +533,7 @@ class _NuevaSesionScreenState extends ConsumerState<_NuevaSesionScreen> {
 
       final db = await DatabaseHelper.instance.database;
       await db.insert('bitacora_sesiones', sesion.toMap());
+      BitacoraSyncService.subirRegistro(sesion.toMap());
 
       if (mounted) Navigator.pop(context);
     } catch (e) {
@@ -772,31 +776,38 @@ class _EditarSesionScreenState extends State<_EditarSesionScreen> {
     setState(() => _guardando = true);
     try {
       final db = await DatabaseHelper.instance.database;
+      final cambios = {
+        'sesiones_prescritas':
+            int.tryParse(_prescritasCtrl.text),
+        'dolor_eva': _registrarEva ? _eva : null,
+        'tratamiento_realizado':
+            _tratamiento.text.trim().isEmpty
+                ? null
+                : _tratamiento.text.trim(),
+        'respuesta_tratamiento':
+            _respuesta.text.trim().isEmpty
+                ? null
+                : _respuesta.text.trim(),
+        'ejercicios_realizados':
+            _ejercicios.text.trim().isEmpty
+                ? null
+                : _ejercicios.text.trim(),
+        'observaciones': _observaciones.text.trim().isEmpty
+            ? null
+            : _observaciones.text.trim(),
+      };
       await db.update(
         'bitacora_sesiones',
-        {
-          'sesiones_prescritas':
-              int.tryParse(_prescritasCtrl.text),
-          'dolor_eva': _registrarEva ? _eva : null,
-          'tratamiento_realizado':
-              _tratamiento.text.trim().isEmpty
-                  ? null
-                  : _tratamiento.text.trim(),
-          'respuesta_tratamiento':
-              _respuesta.text.trim().isEmpty
-                  ? null
-                  : _respuesta.text.trim(),
-          'ejercicios_realizados':
-              _ejercicios.text.trim().isEmpty
-                  ? null
-                  : _ejercicios.text.trim(),
-          'observaciones': _observaciones.text.trim().isEmpty
-              ? null
-              : _observaciones.text.trim(),
-        },
+        cambios,
         where: 'id = ?',
         whereArgs: [widget.sesion.id],
       );
+      try {
+        await SupabaseService.client
+            .from('bitacora_sesiones')
+            .update(cambios)
+            .eq('id', widget.sesion.id);
+      } catch (_) {}
       if (mounted) Navigator.pop(context);
     } catch (e) {
       if (mounted) {
